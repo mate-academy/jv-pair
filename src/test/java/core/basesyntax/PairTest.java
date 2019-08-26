@@ -22,8 +22,19 @@ public class PairTest {
     @Test
     public void methodsCheck() {
         Class<Pair> pairClass = Pair.class;
-        Method[] methods = pairClass.getMethods();
+        Method[] methods = pairClass.getDeclaredMethods();
         Assert.assertTrue("Not all methods were implemented", methods.length >= 5);
+        int requiredMethodsCount = 0;
+        for (Method method : methods) {
+            if (method.getName().equalsIgnoreCase("hashCode") ||
+                    method.getName().equalsIgnoreCase("equals") ||
+                    method.getName().equalsIgnoreCase("of") ||
+                    method.getName().equalsIgnoreCase("getFirst") ||
+                    method.getName().equalsIgnoreCase("getSecond")) {
+                requiredMethodsCount++;
+            }
+        }
+        Assert.assertTrue("Not all required methods are implemented!", requiredMethodsCount >= 5);
     }
 
     @Test
