@@ -37,19 +37,30 @@ public class PairTest {
     }
 
     @Test
-    public void hashCodeTest() {
-        Assert.assertEquals("Hash codes are not equal!", firstPair.hashCode(), thirdPair.hashCode());
-        Assert.assertNotEquals("Hash codes are not equal!", firstPair.hashCode(), secondPair.hashCode());
+    public void sameObjectHashCodeEqualityTest() {
+        Assert.assertEquals("Hash code in the one object is not the same for multiple hash code " +
+                "methods calling", firstPair.hashCode(), firstPair.hashCode());
+        Assert.assertEquals("Hash code in the one object is not the same for multiple hash code " +
+                "methods calling", secondPair.hashCode(), secondPair.hashCode());
+        Assert.assertEquals("Hash code in the one object is not the same for multiple hash code " +
+                "methods calling", thirdPair.hashCode(), thirdPair.hashCode());
     }
 
     @Test
-    public void getFirstTest() {
+    public void hashCodeTest() {
+        Assert.assertEquals("Hash codes are not equal!", firstPair.hashCode(), thirdPair.hashCode());
+        Assert.assertNotEquals("Hash codes should not be equal!", firstPair.hashCode(),
+                secondPair.hashCode());
+    }
+
+    @Test
+    public void getFirstMethodTest() {
         Assert.assertEquals(5, firstPair.getFirst());
         Assert.assertEquals(2, secondPair.getFirst());
     }
 
     @Test
-    public void getSecondTest() {
+    public void getSecondMethodTest() {
         Assert.assertEquals("Five", firstPair.getSecond());
         Assert.assertEquals("Two", secondPair.getSecond());
     }
