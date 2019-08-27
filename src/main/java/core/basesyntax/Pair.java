@@ -1,6 +1,5 @@
 package core.basesyntax;
 
-import java.util.NoSuchElementException;
 import java.util.Objects;
 
 class Pair<T, V> {
@@ -8,16 +7,12 @@ class Pair<T, V> {
     private V secondValue;
 
     public T getFirst() {
-        if (firstValue == null) {
-            throw new NoSuchElementException("No value present");
-        }
+
         return firstValue;
     }
 
     public V getSecond() {
-        if (secondValue == null) {
-            throw new NoSuchElementException("No value present");
-        }
+
         return secondValue;
     }
 
@@ -25,7 +20,6 @@ class Pair<T, V> {
         this.firstValue = firstValue;
         this.secondValue = secondValue;
     }
-
 
     public static <T, V> Pair<T, V> of(T firstValue, V secondValue) {
 
@@ -42,7 +36,7 @@ class Pair<T, V> {
             return false;
         }
 
-        Pair<?, ?> other = (Pair<?, ?>) obj;
+        Pair<T, V> other = (Pair<T, V>) obj;
         return Objects.equals(firstValue, other.firstValue)
                 && Objects.equals(secondValue, other.secondValue);
     }
@@ -54,5 +48,4 @@ class Pair<T, V> {
         result = prime * result + (firstValue == null ? 0 : firstValue.hashCode());
         return result;
     }
-
 }
