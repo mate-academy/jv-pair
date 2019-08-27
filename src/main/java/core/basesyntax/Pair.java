@@ -11,10 +11,9 @@ class Pair<T, N> {
         this.second = second;
     }
 
-    public static <T, N> Pair<T, N> of(T first, N second) {
+    public static <T, N> Pair of(T first, N second) {
         return new Pair<>(first, second);
     }
-
 
     public T getFirst() {
         return first;
@@ -41,5 +40,4 @@ class Pair<T, N> {
     public int hashCode() {
         return Objects.hash(first, second);
     }
-
 }
