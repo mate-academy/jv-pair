@@ -24,7 +24,6 @@ class Pair<T, V> {
     }
 
     @Override
-    //@SuppressWarnings("unchecked")
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
