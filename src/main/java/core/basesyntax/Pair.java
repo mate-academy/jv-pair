@@ -30,10 +30,8 @@ class Pair<K, V> {
         }
         if (object instanceof Pair) {
             Pair<K, V> pairObject = (Pair) object;
-            if (this.firstArgument.equals(pairObject.firstArgument)
-                    && Objects.equals(this.secondArgument, pairObject.secondArgument)) {
-                return true;
-            }
+            return this.firstArgument.equals(pairObject.firstArgument)
+                    && Objects.equals(this.secondArgument, pairObject.secondArgument);
         }
         return false;
     }
