@@ -31,13 +31,14 @@ class Pair<K, V> {
         if (object instanceof Pair) {
             Pair<K, V> pairObject = (Pair) object;
             return this.firstArgument.equals(pairObject.firstArgument)
-                    && Objects.equals(this.secondArgument, pairObject.secondArgument);
+                    && this.secondArgument.equals(pairObject.secondArgument);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstArgument, secondArgument);
+        return String.valueOf(firstArgument).length()
+                + String.valueOf(secondArgument).length() * 31;
     }
 }
