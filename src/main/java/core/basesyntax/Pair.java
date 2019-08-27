@@ -7,12 +7,10 @@ class Pair<T, V> {
     private V secondValue;
 
     public T getFirst() {
-
         return firstValue;
     }
 
     public V getSecond() {
-
         return secondValue;
     }
 
@@ -22,11 +20,11 @@ class Pair<T, V> {
     }
 
     public static <T, V> Pair<T, V> of(T firstValue, V secondValue) {
-
         return new Pair<>(firstValue, secondValue);
     }
 
     @Override
+    //@SuppressWarnings("unchecked")
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -36,9 +34,9 @@ class Pair<T, V> {
             return false;
         }
 
-        Pair<T, V> other = (Pair<T, V>) obj;
-        return Objects.equals(firstValue, other.firstValue)
-                && Objects.equals(secondValue, other.secondValue);
+        Pair<T, V> pair = (Pair) obj;
+        return Objects.equals(firstValue, pair.firstValue)
+                && Objects.equals(secondValue, pair.secondValue);
     }
 
     public int hashCode() {
