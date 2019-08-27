@@ -2,7 +2,7 @@ package core.basesyntax;
 
 import java.util.Objects;
 
-class Pair <K, V> {
+class Pair<K, V> {
     private K firstArgument;
     private V secondArgument;
 
@@ -11,9 +11,10 @@ class Pair <K, V> {
         this.secondArgument = secondArgument;
     }
 
-    public static <K, V> Pair <K, V> of(K firstArgument, V secondArgument) {
+    public static <K, V> Pair<K, V> of(K firstArgument, V secondArgument) {
         return new Pair<>(firstArgument, secondArgument);
     }
+
     public K getFirst() {
         return firstArgument;
     }
@@ -28,10 +29,11 @@ class Pair <K, V> {
             return true;
         }
         if (object instanceof Pair) {
-            Pair <K, V> pairObject = (Pair) object;
-            if(this.firstArgument.equals(pairObject.firstArgument) &&
-                    Objects.equals(this.secondArgument, pairObject.secondArgument))
+            Pair<K, V> pairObject = (Pair) object;
+            if (this.firstArgument.equals(pairObject.firstArgument)
+                    && Objects.equals(this.secondArgument, pairObject.secondArgument)) {
                 return true;
+            }
         }
         return false;
     }
