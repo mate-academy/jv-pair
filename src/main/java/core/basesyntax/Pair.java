@@ -21,11 +21,6 @@ class Pair<T, V> {
         return secondValue;
     }
 
-    private Pair() {
-        this.firstValue = null;
-        this.secondValue = null;
-    }
-
     private Pair(T firstValue, V secondValue) {
         this.firstValue = firstValue;
         this.secondValue = secondValue;
@@ -48,11 +43,16 @@ class Pair<T, V> {
         }
 
         Pair<?, ?> other = (Pair<?, ?>) obj;
-        return Objects.equals(firstValue, other.firstValue) && Objects.equals(secondValue, other.secondValue);
+        return Objects.equals(firstValue, other.firstValue)
+                && Objects.equals(secondValue, other.secondValue);
     }
 
     public int hashCode() {
-        return Objects.hash(firstValue, secondValue);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (secondValue == null ? 0 : secondValue.hashCode());
+        result = prime * result + (firstValue == null ? 0 : firstValue.hashCode());
+        return result;
     }
 
 }
