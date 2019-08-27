@@ -36,7 +36,7 @@ class Pair<T, V> {
 
     @Override
     public int hashCode() {
-        return this.getFirst().hashCode() + this.getSecond().hashCode();
+        return this.getFirst().hashCode() * 23 + this.getSecond().hashCode() / 31;
     }
 
 
