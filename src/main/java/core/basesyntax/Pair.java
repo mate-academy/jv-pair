@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<K, V> {
     private K firstArgument;
     private V secondArgument;
