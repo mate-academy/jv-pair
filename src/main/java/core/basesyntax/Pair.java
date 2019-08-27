@@ -1,12 +1,11 @@
 package core.basesyntax;
 
-
 class Pair<T, V> {
     private T first;
     private V second;
 
-    public static <T, V> Pair of(T t, V v) {
-        return new Pair(t, v);
+    public static <T, V> Pair of(T first, V second) {
+        return new Pair(first, second);
     }
 
     public Pair(T t, V v) {
