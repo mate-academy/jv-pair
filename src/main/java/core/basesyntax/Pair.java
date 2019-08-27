@@ -1,40 +1,44 @@
 package core.basesyntax;
 
-class Pair<Type1, Type2> {
-    private Type1 first;
-    private Type2 second;
+class Pair<A, B> {
+    private A first;
+    private B second;
 
-    private Pair(Type1 first, Type2 second) {
+    private Pair(A first, B second) {
         this.first = first;
         this.second = second;
     }
 
-    public Type1 getFirst() {
+    public A getFirst() {
         return first;
     }
 
-    public void setFirst(Type1 first) {
+    public void setFirst(A first) {
         this.first = first;
     }
 
-    public Type2 getSecond() {
+    public B getSecond() {
         return second;
     }
 
-    public void setSecond(Type2 second) {
+    public void setSecond(B second) {
         this.second = second;
     }
 
-    static <Type1, Type2> Pair of(Type1 first, Type2 second) {
+    static <A, B> Pair of(A first, B second) {
         return new Pair<>(first, second);
     }
 
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (!(object instanceof Pair)) return false;
-        Pair<Type1, Type2> pair = (Pair<Type1, Type2>) object;
-        return java.util.Objects.equals(first, pair.getFirst()) &&
-                java.util.Objects.equals(second, pair.getSecond());
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Pair)) {
+            return false;
+        }
+        Pair<A, B> pair = (Pair<A, B>) object;
+        return java.util.Objects.equals(first, pair.getFirst())
+                && java.util.Objects.equals(second, pair.getSecond());
     }
 
     public int hashCode() {
