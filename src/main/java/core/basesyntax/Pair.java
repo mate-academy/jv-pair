@@ -1,32 +1,32 @@
 package core.basesyntax;
 
 class Pair<T, V> {
-    private T object1;
-    private V object2;
+    private T firstObject;
+    private V secondObject;
 
-    public Pair(T object1, V object2) {
-        this.object1 = object1;
-        this.object2 = object2;
+    public Pair(T firstObject, V secondObject) {
+        this.firstObject = firstObject;
+        this.secondObject = secondObject;
     }
 
     public T getFirst() {
-        return object1;
+        return firstObject;
     }
 
     public V getSecond() {
-        return object2;
+        return secondObject;
     }
 
-    public void setObject1(T object1) {
-        this.object1 = object1;
+    public void setFirst(T firstObject) {
+        this.firstObject = firstObject;
     }
 
-    public void setObject2(V object2) {
-        this.object2 = object2;
+    public void setSecond(V secondObject) {
+        this.secondObject = secondObject;
     }
 
-    public static <T, V> Pair of(T object1, V object2) {
-        return new Pair<>(object1, object2);
+    public static <T, V> Pair of(T firstObject, V secondObject) {
+        return new Pair<>(firstObject, secondObject);
     }
 
     @Override
@@ -43,9 +43,9 @@ class Pair<T, V> {
                 return false;
             }
             int outside = (int) pair.getFirst();
-            int inside = (int) object1;
+            int inside = (int) firstObject;
             String string = (String) pair.getSecond();
-            if (outside == inside && string.equals(object2)) {
+            if (outside == inside && string.equals(secondObject)) {
                 return true;
             }
         }
@@ -54,8 +54,8 @@ class Pair<T, V> {
 
     @Override
     public int hashCode() {
-        int hashObject1 = (object1 != null) ? 31 * (int)object1 : 0;
-        int hashObject2 = (object2 != null) ? 31 * ((String)object2).length() : 0;
+        int hashObject1 = (firstObject != null) ? 31 * (int) firstObject : 0;
+        int hashObject2 = (secondObject != null) ? 31 * ((String) secondObject).length() : 0;
         return hashObject1 + hashObject2;
     }
 }
