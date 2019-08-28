@@ -1,23 +1,23 @@
 package core.basesyntax;
 
-class Pair<T, E> {
-    private final T first;
-    private final E second;
+class Pair<F, S> {
+    private final F first;
+    private final S second;
 
-    private Pair(T t, E e) {
-        this.first = t;
-        this.second = e;
+    private Pair(F first, S second) {
+        this.first = first;
+        this.second = second;
     }
 
-    public static <T, E> Pair<T, E> of(T t, E e) {
-        return new Pair<>(t, e);
+    public static <F, S> Pair<F, S> of(F first, S second) {
+        return new Pair<>(first, second);
     }
 
-    public T getFirst() {
+    public F getFirst() {
         return first;
     }
 
-    public E getSecond() {
+    public S getSecond() {
         return second;
     }
 
