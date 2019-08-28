@@ -43,8 +43,8 @@ class Pair<T, V> {
         this.object2 = object2;
     }
 
-    public static <T, V> Pair of(T t, V v) {
-        return new Pair(t, v);
+    public static <T, V> Pair of(T object1, V object2) {
+        return new Pair(object1, object2);
     }
 
     public T getFirst() {
