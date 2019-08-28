@@ -9,6 +9,9 @@ class Pair <A, B> {
         this.second = second;
     }
 
+    public static <A, B> Pair of(A first, B second) {
+        return new Pair(first, second);
+    }
     public A getFirst() {
         return first;
     }
@@ -39,5 +42,6 @@ class Pair <A, B> {
             Pair<A, B> pair = (Pair<A, B>) object;
             return first.equals(pair.first) && second.equals(pair.second);
         }
+        return false;
     }
 }
