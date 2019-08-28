@@ -2,12 +2,12 @@ package core.basesyntax;
 
 class Pair<T, E> {
 
-    private final T firstObj;
-    private final E secondObj;
+    private final T firstObject;
+    private final E secondObject;
 
-    public Pair(T firstObj, E secondObj) {
-        this.firstObj = firstObj;
-        this.secondObj = secondObj;
+    public Pair(T firstObject, E secondObject) {
+        this.firstObject = firstObject;
+        this.secondObject = secondObject;
     }
 
     public static <T, E> Pair of(T first, E second) {
@@ -15,11 +15,11 @@ class Pair<T, E> {
     }
 
     public T getFirst() {
-        return firstObj;
+        return firstObject;
     }
 
     public E getSecond() {
-        return secondObj;
+        return secondObject;
     }
 
     @Override
@@ -33,15 +33,17 @@ class Pair<T, E> {
 
         Pair<T, E> pair = (Pair<T, E>) obj;
 
-        if (firstObj != null ? !firstObj.equals(pair.firstObj) : pair.firstObj != null) {
+        if (firstObject != null
+                ? !firstObject.equals(pair.firstObject) : pair.firstObject != null) {
             return false;
         }
-        return secondObj != null ? secondObj.equals(pair.secondObj) : pair.secondObj == null;
+        return secondObject != null
+                ? secondObject.equals(pair.secondObject) : pair.secondObject == null;
     }
 
     @Override
     public int hashCode() {
-        int result = firstObj != null ? firstObj.hashCode() : 0;
-        return result = 31 * result + (secondObj != null ? secondObj.hashCode() : 0);
+        int result = firstObject != null ? firstObject.hashCode() : 0;
+        return result = 31 * result + (secondObject != null ? secondObject.hashCode() : 0);
     }
 }
