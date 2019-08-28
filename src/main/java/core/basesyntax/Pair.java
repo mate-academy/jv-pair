@@ -15,11 +15,6 @@ class Pair<F, S> {
     private F first;
     private S second;
 
-    private Pair() {
-        this.first = null;
-        this.second = null;
-    }
-
     private Pair(F first, S second) {
         this.first = first;
         this.second = second;
@@ -61,7 +56,7 @@ class Pair<F, S> {
         return 63 * hash + (second != null ? second.hashCode() : 0);
     }
 
-    static <F, S> Pair<F, S> of(F first, S second) {
+    public static <F, S> Pair<F, S> of(F first, S second) {
         return new Pair<>(first, second);
     }
 }
