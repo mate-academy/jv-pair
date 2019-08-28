@@ -19,40 +19,40 @@ boolean mustBeTrue = pair.equals(pair2); // true!
 boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
  */
 class Pair<T, V> {
-    private T object1;
-    private V object2;
+    private T objectOne;
+    private V objectTwo;
 
-    private Pair(T object1, V object2) {
-        this.object1 = object1;
-        this.object2 = object2;
+    private Pair(T objectOne, V objectTwo) {
+        this.objectOne = objectOne;
+        this.objectTwo = objectTwo;
     }
 
-    public T getObject1() {
-        return object1;
+    public T getObjectOne() {
+        return objectOne;
     }
 
-    public V getObject2() {
-        return object2;
+    public V getObjectTwo() {
+        return objectTwo;
     }
 
-    public void setObject1(T object1) {
-        this.object1 = object1;
+    public void setObjectOne(T objectOne) {
+        this.objectOne = objectOne;
     }
 
-    public void setObject2(V object2) {
-        this.object2 = object2;
+    public void setObjectTwo(V objectTwo) {
+        this.objectTwo = objectTwo;
     }
 
-    public static <T, V> Pair of(T object1, V object2) {
-        return new Pair(object1, object2);
+    public static <T, V> Pair of(T objectOne, V objectTwo) {
+        return new Pair(objectOne, objectTwo);
     }
 
     public T getFirst() {
-        return object1;
+        return objectOne;
     }
 
     public V getSecond() {
-        return object2;
+        return objectTwo;
     }
 
     @Override
@@ -64,12 +64,12 @@ class Pair<T, V> {
             return false;
         }
         Pair<T, V> pair = (Pair<T, V>) o;
-        return this.object1.equals(pair.object1)
-                && this.object2.equals(pair.object2);
+        return this.objectOne.equals(pair.objectOne)
+                && this.objectTwo.equals(pair.objectTwo);
     }
 
     @Override
     public int hashCode() {
-        return object1.hashCode() * 31 + object2.hashCode();
+        return objectOne.hashCode() * 31 + objectTwo.hashCode();
     }
 }
