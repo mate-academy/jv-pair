@@ -20,21 +20,16 @@ class Pair<F, S> {
         this.second = null;
     }
 
-    private Pair(F first) {
-        this.first = first;
-        this.second = null;
-    }
-
     private Pair(F first, S second) {
         this.first = first;
         this.second = second;
     }
 
-    F getFirst() {
+    public F getFirst() {
         return first;
     }
 
-    S getSecond() {
+    public S getSecond() {
         return second;
     }
 
@@ -68,20 +63,5 @@ class Pair<F, S> {
 
     static <F, S> Pair<F, S> of(F first, S second) {
         return new Pair<>(first, second);
-    }
-
-    public static void main(String[] args) {
-        Pair<Integer, String> pair = Pair.of(1, "hello");
-        Integer i = pair.getFirst(); // 1
-        String s = pair.getSecond(); // "hello"
-
-        Pair<Integer, String> pair2 = Pair.of(1, "hello");
-        boolean mustBeTrue = pair.equals(pair2); // true!
-        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
-
-        System.out.println(i); // = 1
-        System.out.println(s); // = hello
-        System.out.println(mustBeTrue); // = true
-        System.out.println(mustAlsoBeTrue); // = true
     }
 }
