@@ -27,11 +27,7 @@ class Pair<T, K> {
         }
 
         Pair<?, ?> pair = (Pair<?, ?>) o;
-
-        if (firstItem != null ? !firstItem.equals(pair.firstItem) : pair.firstItem != null) {
-            return false;
-        }
-        return secondItem != null ? secondItem.equals(pair.secondItem) : pair.secondItem == null;
+        return firstItem.equals(pair.firstItem) && secondItem.equals(pair.secondItem);
     }
 
     @Override
