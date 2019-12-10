@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 /**
  * Реализуйте generic-класс Pair, содержащий пару элементов разных типов
  * и не запрещающий элементам принимать значение null.
@@ -33,16 +31,16 @@ class Pair<T, K> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || o.getClass() != getClass()) {
+        if (obj == null || obj.getClass() != getClass()) {
             return false;
         }
-        Pair pair = (Pair) o;
-        return Objects.equals(getFirst(), pair.getFirst())
-                && Objects.equals(getSecond(), pair.getSecond());
+        Pair pair = (Pair) obj;
+        return (first.equals(pair.getFirst()) &&  second.equals(pair.getSecond()));
+
     }
 
     @Override
