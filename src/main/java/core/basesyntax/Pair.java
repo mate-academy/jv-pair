@@ -4,7 +4,7 @@ class Pair<I, S> {
     private I first;
     private S second;
 
-    public static <I, K> Pair of(I first, K second) {
+    public static <I, S> Pair of(I first, S second) {
         return new Pair<>(first, second);
     }
 
