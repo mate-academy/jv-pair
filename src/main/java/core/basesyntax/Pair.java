@@ -30,7 +30,7 @@ class Pair<F, S> {
         if (this == obj) {
             return true;
         }
-        if (this.getClass() != obj.getClass()) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
