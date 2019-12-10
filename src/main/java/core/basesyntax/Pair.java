@@ -1,8 +1,13 @@
 package core.basesyntax;
 
 class Pair<T, K> {
-    T firstItem;
-    K secondItem;
+    private T firstItem;
+    private K secondItem;
+
+    private Pair(T firstItem, K secondItem) {
+        this.firstItem = firstItem;
+        this.secondItem = secondItem;
+    }
 
     public T getFirst() {
         return firstItem;
@@ -12,9 +17,9 @@ class Pair<T, K> {
         return secondItem;
     }
 
-    private Pair(T firstItem, K secondItem) {
-        this.firstItem = firstItem;
-        this.secondItem = secondItem;
+    public static Pair of(Object first, Object second) {
+        Pair pair = new Pair(first, second);
+        return pair;
     }
 
     @Override
@@ -35,10 +40,5 @@ class Pair<T, K> {
         int result = firstItem != null ? firstItem.hashCode() : 0;
         result = 31 * result + (secondItem != null ? secondItem.hashCode() : 0);
         return result;
-    }
-
-    public static Pair of(Object first, Object second) {
-        Pair pair = new Pair(first, second);
-        return pair;
     }
 }
