@@ -1,5 +1,5 @@
 package core.basesyntax;
-
+//
 import java.util.Objects;
 
 class Pair<A, B> {
