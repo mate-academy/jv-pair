@@ -2,12 +2,8 @@ package core.basesyntax;
 
 class Pair<F, S> {
 
-    public static <F, S> Pair of(F first, S second) {
-        return new Pair<>(first, second);
-    }
-
-    F first;
-    S second;
+    private F first;
+    private S second;
 
     private Pair(F first, S second) {
         this.first = first;
@@ -34,12 +30,16 @@ class Pair<F, S> {
         if (this == obj) {
             return true;
         }
-        if (this.getClass() != obj.getClass() || obj == null) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
 
         Pair pair = (Pair) obj;
         return first.equals(pair.first) && second.equals(pair.second);
+    }
+
+    public static <F, S> Pair of(F first, S second) {
+        return new Pair<>(first, second);
     }
 
 }
