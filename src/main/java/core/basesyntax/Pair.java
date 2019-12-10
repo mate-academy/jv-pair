@@ -28,14 +28,11 @@ class Pair<T,K> {
 
     @Override
     public boolean equals(Object object) {
-        if (object == null) {
+        if (object == null || this.getClass() != object.getClass()) {
             return false;
         }
         Pair localObject = (Pair)object;
-        if (localObject.firstObject.equals(this.firstObject)
-                && localObject.secondObject.equals(this.secondObject)) {
-            return true;
-        }
-        return false;
+        return localObject.firstObject.equals(this.firstObject)
+                && localObject.secondObject.equals(this.secondObject) || this == object;
     }
 }
