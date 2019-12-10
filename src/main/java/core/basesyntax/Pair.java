@@ -1,19 +1,21 @@
 package core.basesyntax;
 
-class Pair<T1, T2> {
-    T1 first;
-    T2 second;
+import java.util.Objects;
 
-    private Pair(T1 first, T2 second) {
+class Pair<T, K> {
+    T first;
+    K second;
+
+    private Pair(T first, K second) {
         this.first = first;
         this.second = second;
     }
 
-    public T1 getFirst() {
+    public T getFirst() {
         return first;
     }
 
-    public T2 getSecond() {
+    public K getSecond() {
         return second;
     }
 
@@ -26,12 +28,12 @@ class Pair<T1, T2> {
             return false;
         }
 
-        Pair<T1, T2> pair = (Pair<T1, T2>) o;
+        Pair<T, K> pair = (Pair<T, K>) o;
 
-        if (first != null ? !first.equals(pair.first) : pair.first != null) {
+        if (!Objects.equals(first, pair.first)) {
             return false;
         }
-        return second != null ? second.equals(pair.second) : pair.second == null;
+        return Objects.equals(second, pair.second);
     }
 
     @Override
@@ -41,7 +43,7 @@ class Pair<T1, T2> {
         return result;
     }
 
-    public static <T1, T2> Pair of(T1 first, T2 second) {
+    public static <T, K> Pair of(T first, K second) {
         return new Pair(first, second);
     }
 }
