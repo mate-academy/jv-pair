@@ -1,11 +1,11 @@
 package core.basesyntax;
 
-public class Pair<T, T1> {
+public class Pair<T, V> {
     T first;
-    T1 second;
+    V second;
 
-    public static Pair<Integer, String> of(int i, String hello) {
-        return new Pair<>(i, hello);
+    public static <T, V> Pair of(T first, V second) {
+        return new Pair(first, second);
     }
 
     @Override
@@ -23,15 +23,15 @@ public class Pair<T, T1> {
         if (this.getClass() == obj.getClass()
                 && obj != null) {
             Pair pair = (Pair) obj;
-            if (this.getFirst().equals(pair.getFirst())
-                    && this.getSecond().equals(pair.getSecond())) {
+            if (first.equals(pair.getFirst())
+                    && second.equals(pair.getSecond())) {
                 return true;
             }
         }
         return false;
     }
 
-    private Pair(T first, T1 second) {
+    private Pair(T first, V second) {
         this.first = first;
         this.second = second;
     }
@@ -40,7 +40,7 @@ public class Pair<T, T1> {
         return first;
     }
 
-    public T1 getSecond() {
+    public V getSecond() {
         return second;
     }
 }
