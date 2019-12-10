@@ -1,14 +1,14 @@
 package core.basesyntax;
 
-class Pair<I, S> {
-    private I first;
-    private S second;
+class Pair<K, V> {
+    private K first;
+    private V second;
 
-    public static <I, S> Pair of(I first, S second) {
+    public static <K, V> Pair of(K first, V second) {
         return new Pair<>(first, second);
     }
 
-    private Pair(I first, S second) {
+    private Pair(K first, V second) {
         this.first = first;
         this.second = second;
     }
@@ -30,11 +30,11 @@ class Pair<I, S> {
         return 31 * first.hashCode() + second.hashCode();
     }
 
-    public I getFirst() {
+    public K getFirst() {
         return first;
     }
 
-    public S getSecond() {
+    public V getSecond() {
         return second;
     }
 }
