@@ -27,9 +27,7 @@ class Pair<I, S> {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == null || obj == null) {
-            return false;
-        }
+
         if (this == obj) {
             return true;
         }
