@@ -19,7 +19,7 @@ class Pair<F, S> {
         return second;
     }
 
-    public static <O, P> Pair of(O first, P second) {
+    public static <F, S> Pair of(F first, S second) {
         return new Pair<>(first, second);
     }
 
