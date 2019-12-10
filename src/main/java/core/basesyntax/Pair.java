@@ -24,14 +24,11 @@ class Pair<T, K> {
 
     @Override
     public boolean equals(Object objToCompare) {
-
-        if (objToCompare == null) {
-            return false;
-        }
         if (this == objToCompare) {
             return true;
         }
-        if (objToCompare.getClass() != Pair.class) {
+        if (objToCompare.getClass() != Pair.class
+                || objToCompare == null) {
             return false;
         }
         Pair pair = (Pair) objToCompare;
