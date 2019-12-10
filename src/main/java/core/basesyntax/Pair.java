@@ -2,24 +2,24 @@ package core.basesyntax;
 
 class Pair<T, K> {
 
-    private T value;
-    private K value2;
+    private T key;
+    private K value;
 
-    private Pair(T value, K value2) {
+    private Pair(T key, K value) {
+        this.key = key;
         this.value = value;
-        this.value2 = value2;
     }
 
     public T getFirst() {
-        return value;
+        return key;
     }
 
     public K getSecond() {
-        return value2;
+        return value;
     }
 
-    public static <T, K> Pair of(T value, K value2) {
-        return new Pair<>(value, value2);
+    public static <T, K> Pair of(T key, K value) {
+        return new Pair<>(key, value);
     }
 
     @Override
@@ -27,18 +27,18 @@ class Pair<T, K> {
         if (this == objToCompare) {
             return true;
         }
-        if (objToCompare.getClass() != Pair.class
-                || objToCompare == null) {
+        if (objToCompare == null
+                || objToCompare.getClass() != this.getClass()) {
             return false;
         }
         Pair pair = (Pair) objToCompare;
-        return this.value.equals(pair.value)
-                && this.value2.equals(pair.value2);
+        return this.key.equals(pair.key)
+                && this.value.equals(pair.value);
     }
 
     @Override
     public int hashCode() {
-        return ((value != null) ? value.hashCode() : 0) * 31
-                + ((value2 != null) ? value2.hashCode() : 0) * 31;
+        return ((key != null) ? key.hashCode() : 0) * 31
+                + ((value != null) ? value.hashCode() : 0) * 31;
     }
 }
