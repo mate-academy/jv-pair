@@ -26,9 +26,7 @@ class Pair<A, B> {
             return false;
         }
         Pair pair = (Pair) obj;
-        return ((first == pair.getFirst() || (first != null && first.equals(pair.getFirst())))
-                && (second == pair.getSecond() || (second != null
-                && second.equals(pair.getSecond()))));
+        return ((first == pair.getFirst() || (first != null && first.equals(pair.getFirst()))));
     }
 
     @Override
