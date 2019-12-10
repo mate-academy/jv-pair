@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<A, B> {
     private A first;
     private B second;
@@ -11,30 +9,31 @@ class Pair<A, B> {
         this.second = second;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(first, pair.first)
-                && Objects.equals(second, pair.second);
-    }
-
-    @Override
-    public int hashCode() {
-        return 31 * first.hashCode() * second.hashCode();
-    }
-
     public A getFirst() {
         return first;
     }
 
     public B getSecond() {
         return second;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Pair pair = (Pair) obj;
+        return ((first == pair.getFirst() || (first != null && first.equals(pair.getFirst())))
+                && (second == pair.getSecond() || (second != null
+                && second.equals(pair.getSecond()))));
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * second.hashCode() * first.hashCode();
     }
 
     public static <A, B> Pair of(A first, B second) {
