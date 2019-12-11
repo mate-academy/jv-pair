@@ -31,11 +31,11 @@ class Pair<I, S> {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof Pair) {
-            Pair pair = (Pair) obj;
-            return this.first.equals(pair.first) && this.second.equals(pair.second) ? true : false;
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
         }
-        return false;
+        Pair pair = (Pair) obj;
+        return this.first.equals(pair.first) && this.second.equals(pair.second) ? true : false;
     }
 
     @Override
