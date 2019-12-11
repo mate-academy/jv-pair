@@ -26,9 +26,11 @@ class Pair<T, K> {
         if (this == object) {
             return true;
         }
-        Pair obj = (Pair) object;
-        if (firstElement == obj.getFirst()) {
-            return secondElement.equals(obj.getSecond());
+        if (object != null && object.getClass().equals(this.getClass())) {
+            Pair obj = (Pair) object;
+            if (firstElement == obj.getFirst()) {
+                return secondElement.equals(obj.getSecond());
+            }
         }
         return false;
     }
