@@ -3,8 +3,8 @@ package core.basesyntax;
 import java.util.Objects;
 
 class Pair<T, K> {
-    T first;
-    K second;
+    private T first;
+    private K second;
 
     private Pair(T first, K second) {
         this.first = first;
