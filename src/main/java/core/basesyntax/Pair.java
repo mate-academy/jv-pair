@@ -30,10 +30,8 @@ class Pair<K, N> {
             return false;
         }
         Pair pair = (Pair) o;
-        return (firstElement == pair.firstElement
-                || (firstElement != null && firstElement.equals(pair.getFirst())))
-                && (secondElement == pair.secondElement
-                || (secondElement != null && secondElement.equals(pair.getSecond())));
+        return firstElement.equals(pair.firstElement)
+                && secondElement.equals(pair.secondElement);
     }
 
     @Override
