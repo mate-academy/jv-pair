@@ -1,14 +1,12 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<T, V> {
     private T firstElement;
     private V secondElement;
 
-    private Pair(T i, V s) {
-        this.firstElement = i;
-        this.secondElement = s;
+    private Pair(T firstElement, V secondElement) {
+        this.firstElement = firstElement;
+        this.secondElement = secondElement;
     }
 
     public T getFirst() {
@@ -24,20 +22,26 @@ class Pair<T, V> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (!(o instanceof Pair)) {
+        if (object == null) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(firstElement, pair.firstElement)
-                && Objects.equals(secondElement, pair.secondElement);
+        if (object.getClass() != Pair.class) {
+            return false;
+        }
+        Pair pairObject = (Pair) object;
+        return this.firstElement.equals(pairObject.firstElement)
+                && this.secondElement.equals(pairObject.secondElement);
     }
 
     @Override
     public int hashCode() {
-        return 31 * Objects.hash(firstElement, secondElement);
+        int result = (firstElement != null ? firstElement.hashCode() : 0)
+                + (secondElement != null ? secondElement.hashCode() : 0);
+
+        return 31 * result;
     }
 }
