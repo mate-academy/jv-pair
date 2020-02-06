@@ -39,12 +39,69 @@ public class PairTest {
 
     @Test
     public void pairsAreEquals() {
-        Assert.assertEquals(firstPair, thirdPair);
+        boolean actualResult = firstPair.equals(thirdPair);
+        Assert.assertTrue("The result should be true after comparing two the same pairs ",
+                actualResult);
+    }
+
+    @Test
+    public void pairsAreEqualsWithNullParameter() {
+        Pair firstPair = Pair.of(null, null);
+        Pair secondPair = Pair.of(null, null);
+        boolean actualResult = firstPair.equals(secondPair);
+        Assert.assertTrue("The result should be true after comparing two the same pairs ",
+                actualResult);
     }
 
     @Test
     public void pairsAreNotEquals() {
-        Assert.assertNotEquals(firstPair, secondPair);
+        boolean actualResult = firstPair.equals(secondPair);
+        Assert.assertFalse("The result should be false after comparing two different pairs ",
+                actualResult);
+    }
+
+    @Test
+    public void pairsAreNotEqualsWithNullObject() {
+        Pair nullPair = null;
+        boolean actualResult = firstPair.equals(nullPair);
+        Assert.assertFalse("The result should be false after comparing two different pairs ",
+                actualResult);
+    }
+
+    @Test
+    public void pairsAreNotEqualsWithNullParameter() {
+        Pair firstPairWithNullParameter = Pair.of(null, null);
+        boolean actualResult = firstPair.equals(firstPairWithNullParameter);
+        Assert.assertFalse("The result should be false after comparing two the same pairs ",
+                actualResult);
+    }
+
+    @Test
+    public void pairsAreEqualsWithComplicatedParameter() {
+        Person firstPerson = new Person("Name", "Surname");
+        Person secondPerson = new Person("Name", "Surname");
+        Address firstAddress = new Address("Street", 1);
+        Address secondAddress = new Address("Street", 1);
+        Pair firstPair = Pair.of(firstPerson, firstAddress);
+        Pair secondPair = Pair.of(secondPerson, secondAddress);
+        boolean actualResult = firstPair.equals(secondPair);
+
+        Assert.assertTrue("The result should be true after comparing two the same pairs ",
+                actualResult);
+    }
+
+    @Test
+    public void pairsAreNotEqualsWithComplicatedParameter() {
+        Person firstPerson = new Person("Name1", "Surname1");
+        Person secondPerson = new Person("Name2", "Surname2");
+        Address firstAddress = new Address("Street1", 1);
+        Address secondAddress = new Address("Street2", 1);
+        Pair firstPair = Pair.of(firstPerson, firstAddress);
+        Pair secondPair = Pair.of(secondPerson, secondAddress);
+        boolean actualResult = firstPair.equals(secondPair);
+
+        Assert.assertFalse("The result should be false after comparing two different pairs ",
+                actualResult);
     }
 
     @Test
