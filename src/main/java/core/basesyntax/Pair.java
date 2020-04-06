@@ -17,8 +17,8 @@ class Pair<F, S> {
         return second;
     }
 
-    public static Pair of(Object first, Object second) {
-        return new Pair(first, second);
+    public static <F, S> Pair<F, S> of(F first, S second) {
+        return new Pair<>(first, second);
     }
 
     @Override
@@ -33,7 +33,7 @@ class Pair<F, S> {
         }
 
         if (obj.getClass().equals(getClass())) {
-            Pair pair = (Pair) obj;
+            Pair<F, S> pair = (Pair<F, S>) obj;
 
             return (pair.first == null && first == null) || first.equals(pair.first)
                     && (pair.second == null && second == null) || second.equals(pair.second);
@@ -45,8 +45,8 @@ class Pair<F, S> {
     @Override
     public int hashCode() {
         int hashCode = 13;
-        hashCode = 31 * hashCode + first.hashCode();
-        hashCode = 31 * hashCode + second.hashCode();
+        hashCode = 31 * hashCode + (first != null ? first.hashCode() : 21) ;
+        hashCode = 31 * hashCode + (second != null ? second.hashCode() : 21);
         return hashCode;
     }
 }
