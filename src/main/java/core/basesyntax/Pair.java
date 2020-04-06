@@ -1,10 +1,10 @@
 package core.basesyntax;
 
-class Pair<T, P> {
+class Pair<T, K> {
     private T first;
-    private P second;
+    private K second;
 
-    private Pair(T first, P second) {
+    private Pair(T first, K second) {
         this.first = first;
         this.second = second;
     }
@@ -13,7 +13,7 @@ class Pair<T, P> {
         return first;
     }
 
-    public P getSecond() {
+    public K getSecond() {
         return second;
     }
 
@@ -25,7 +25,7 @@ class Pair<T, P> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<T, P> obj = (Pair<T, P>) o;
+        Pair<T, K> obj = (Pair<T, K>) o;
         return first == null && obj.first == null || first != null && first.equals(obj.first)
                 && second == null && obj.second == null || second != null
                 && second.equals(obj.second);
@@ -43,7 +43,7 @@ class Pair<T, P> {
         return result;
     }
 
-    public static <T, P> Pair of(T first, P second) {
+    public static <T, K> Pair of(T first, K second) {
         return new Pair<>(first, second);
     }
 }
