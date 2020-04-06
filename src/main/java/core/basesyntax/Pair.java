@@ -17,8 +17,8 @@ class Pair<T, S> {
         return second;
     }
 
-    public static <T, K> Pair<T, K> of(T t, K k) {
-        return new Pair<>(t, k);
+    public static <T, S> Pair<T, S> of(T first, S second) {
+        return new Pair<>(first, second);
     }
 
     @Override
