@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<F, S> {
     private F firstValue;
     private S secondValue;
@@ -35,16 +33,16 @@ class Pair<F, S> {
             return false;
         }
         Pair other = (Pair) obj;
-        if ( (firstValue != null
+        if ((firstValue != null
                 && !firstValue.equals(other.firstValue))
                 || (other.firstValue != null
-                && !other.firstValue.equals(firstValue)) ) {
+                && !other.firstValue.equals(firstValue))) {
             return false;
         }
-        if ( (secondValue != null
+        if ((secondValue != null
                 && !secondValue.equals(other.secondValue))
                 || (other.secondValue != null
-                && !other.secondValue.equals(secondValue)) ) {
+                && !other.secondValue.equals(secondValue))) {
             return false;
         }
         return true;
