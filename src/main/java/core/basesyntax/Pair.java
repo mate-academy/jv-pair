@@ -4,7 +4,7 @@ class Pair<F,S> {
     private F first;
     private S second;
 
-    public Pair(F first, S second) {
+    private Pair(F first, S second) {
         this.first = first;
         this.second = second;
     }
@@ -17,8 +17,8 @@ class Pair<F,S> {
         return second;
     }
 
-    static <F, S> Pair of(F first, S second) {
-        return new Pair<>(first, second);
+    public static <F, S> Pair of(F first, S second) {
+        return new Pair<F, S>(first, second);
     }
 
     @Override
@@ -30,15 +30,15 @@ class Pair<F,S> {
             return false;
         }
         Pair<F,S> pair = (Pair) o;
-        return (first == null ? pair.first == null : first.equals(pair.first))
-                && (second == null ? pair.second == null : second.equals(pair.second));
+        return (first == pair.first || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null && second.equals(pair.second));
     }
 
     @Override
     public int hashCode() {
         int result = 17;
         result = 31 * result + (first != null ? first.hashCode() : 0);
-        result = 23 * result + (second != null ? second.hashCode() : 0);
+        result = 31 * result + (second != null ? second.hashCode() : 0);
         return result;
     }
 }
