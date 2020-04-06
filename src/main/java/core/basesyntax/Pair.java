@@ -4,7 +4,9 @@ class Pair<F, S> {
     private F first;
     private S second;
 
-    private Pair() {
+    private Pair(F first, S second) {
+        this.first = first;
+        this.second = second;
     }
 
     public F getFirst() {
@@ -20,19 +22,13 @@ class Pair<F, S> {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (o == null || o.getClass() != Pair.class) {
             return false;
         }
-        if (o.getClass() != Pair.class) {
-            return false;
-        }
-        Pair<F, S> pair = (Pair<F, S>) o;
+        Pair<F, S> pair = (Pair) o;
         return (pair.first == null && first == null)
-                || (((pair.first == null) == (first == null))
-                && (first.equals(pair.first)
-                && (pair.second == null && second == null)
-                || (((pair.second == null) == (second == null))
-                && second.equals(pair.second))));
+                || (((first != null && first.equals(pair.first)))
+                && (second != null && second.equals(pair.second)));
     }
 
     @Override
@@ -44,9 +40,7 @@ class Pair<F, S> {
     }
 
     public static <F, S> Pair of(F first, S second) {
-        Pair<F, S> obj = new Pair();
-        obj.first = first;
-        obj.second = second;
+        Pair<F, S> obj = new Pair(first, second);
         return obj;
     }
 }
