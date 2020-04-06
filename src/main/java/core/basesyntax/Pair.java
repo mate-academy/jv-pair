@@ -28,14 +28,14 @@ class Pair<K, T> {
                 || (second != null && second.equals(pair.second)));
     }
 
-    @Override
+   @Override
     public int hashCode() {
         int value = 17;
         if (first != null) {
-            value += 31 * first.hashCode();
+            value = 31 * value +  first.hashCode();
         }
         if (second != null) {
-            value += 31 * second.hashCode();
+            value = 31 * value +  second.hashCode();
         }
         return value;
     }
