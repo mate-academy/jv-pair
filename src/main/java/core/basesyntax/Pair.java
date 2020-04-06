@@ -29,7 +29,7 @@ class Pair<F, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair pair = (Pair) o;
+        Pair<F, S> pair = (Pair) o;
         return (first == pair.first || first != null && first.equals(pair.first))
                 && (second == pair.second || second != null && second.equals(pair.second));
     }
