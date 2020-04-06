@@ -29,13 +29,12 @@ class Pair<F, S> {
         if (this == object) {
             return true;
         }
-        Pair<F,S> pair = (Pair<F,S>)object;
+        Pair<F,S> pair = (Pair)object;
         if (object.getClass().equals(Pair.class)) {
-            if (firstElement == null && secondElement == null) {
-                return true;
-            }
-            return firstElement.equals(pair.firstElement)
-                    && secondElement.equals(pair.secondElement);
+            return firstElement == null && pair.firstElement == null
+                    ? true : firstElement.equals(pair.firstElement)
+                    && secondElement == null && pair.secondElement == null
+                    ? true : secondElement.equals(pair.secondElement);
         }
         return false;
     }
