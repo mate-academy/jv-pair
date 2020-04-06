@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<K, V> {
     private K key;
     private V value;
@@ -11,7 +9,7 @@ class Pair<K, V> {
         this.value = value;
     }
 
-    public static <K, V> Pair<K, V> of(K key, V value) {
+    public static <K, V> Pair of(K key, V value) {
         return new Pair<>(key, value);
     }
 
@@ -28,19 +26,24 @@ class Pair<K, V> {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Pair)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair pair = (Pair) o;
-        return Objects.equals(key, ((Pair) o).key)
-                && Objects.equals(value, ((Pair) o).value);
+        Pair<K, V> pair = (Pair) o;
+        return key == pair.key || (key != null && key.equals(pair.key))
+                && value == pair.value || (value != null
+                && value.equals(pair.value));
     }
 
     @Override
     public int hashCode() {
         int result = 1;
-        result *= 31 + key.hashCode();
-        result *= 31 + value.hashCode();
+        if (!(key == null)) {
+            result *= 31 + key.hashCode();
+        }
+        if (!(value == null)) {
+            result *= 31 + value.hashCode();
+        }
         return result;
     }
 }
