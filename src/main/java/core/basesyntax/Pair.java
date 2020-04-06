@@ -18,37 +18,33 @@ class Pair<T, K> {
         return second;
     }
 
-    public static Pair of(Object first, Object second) {
+    static <T, K> Pair of(T first, K second) {
         return new Pair<>(first, second);
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Pair<T, K> pair = (Pair<T, K>) o;
-        if (first == null && pair.first == null
-                && second == null && pair.second == null) {
-            return true;
-        }
-        if (first != null && second != null) {
-            return first.equals(pair.first) && second.equals(pair.second);
-        }
-        return false;
+        Pair<T, K> pair = (Pair<T, K>) obj;
+        return first == null ? pair.first == null : first.equals(pair.first)
+                && second == null ? pair.second == null : second.equals(pair.second);
     }
 
     @Override
     public int hashCode() {
         int result = 17;
+        result *= 31;
         if (first != null) {
-            result = result * 31 + first.hashCode();
+            result += first.hashCode();
         }
+        result *= 31;
         if (second != null) {
-            result = result * 31 + second.hashCode();
+            result += second.hashCode();
         }
         return result;
     }
