@@ -1,24 +1,24 @@
 package core.basesyntax;
 
-class Pair<T1, T2> {
-    private T1 value1;
-    private T2 value2;
+class Pair<K, V> {
+    private K value1;
+    private V value2;
 
-    private Pair(T1 value1, T2 value2) {
+    private Pair(K value1, V value2) {
         this.value1 = value1;
         this.value2 = value2;
     }
 
-    public T1 getFirst() {
+    public K getFirst() {
         return value1;
     }
 
-    public T2 getSecond() {
+    public V getSecond() {
         return value2;
     }
 
-    public static <T1, T2> Pair<T1, T2> of(T1 value1, T2 value2) {
-        return new Pair<T1, T2>(value1, value2);
+    public static <K, V> Pair of(K value1, V value2) {
+        return new Pair<K, V>(value1, value2);
     }
 
     public boolean equals(Object object) {
@@ -29,19 +29,20 @@ class Pair<T1, T2> {
             return false;
         }
         if (object.getClass().equals(getClass())) {
-            Pair<T1, T2> obj = (Pair<T1, T2>) object;
-            return (compareElement(value1, obj.value1)
-                    && compareElement(value2, obj.value2));
+            Pair<K, V> obj = (Pair) object;
+            return (compareElement(this, obj));
         }
         return false;
     }
 
-    private boolean compareElement(Object obj1, Object obj2) {
-        if (obj1 == null && obj2 == null) {
+    private boolean compareElement(Pair obj1, Pair obj2) {
+        if (obj1.value1 == null && obj2.value1 == null
+                && obj1.value2 == null && obj2.value2 == null) {
             return true;
         } else {
-            return obj1.equals(obj2);
+            return obj1.value1.equals(obj2.value1) && obj1.value2.equals(obj2.value2);
         }
+
     }
 
     public int hashCode() {
