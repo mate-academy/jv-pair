@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-import java.util.*;
+import java.util.Objects;
 
 class Pair<T, S> {
     private T firstObject;
@@ -19,17 +19,21 @@ class Pair<T, S> {
         return secondObject;
     }
 
-    static <T, S>Pair of(T firstObject, S secondObject) {
+    static <T, S> Pair of(T firstObject, S secondObject) {
         return new Pair(firstObject, secondObject);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(firstObject, pair.firstObject) &&
-                Objects.equals(secondObject, pair.secondObject);
+        return Objects.equals(firstObject, pair.firstObject)
+                && Objects.equals(secondObject, pair.secondObject);
     }
 
     @Override
