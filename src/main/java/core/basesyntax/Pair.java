@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<K, V> {
     private K first;
     private V second;
@@ -35,8 +33,8 @@ class Pair<K, V> {
 
         if (object.getClass().equals(Pair.class)) {
             Pair pair = (Pair) object;
-            return Objects.equals(first, pair.first)
-                    && Objects.equals(second, pair.second);
+            return first == null ? pair.first == null : first.equals(pair.first)
+                    && second == null ? pair.second == null : second.equals(pair.second);
         }
         return false;
     }
@@ -44,8 +42,8 @@ class Pair<K, V> {
     @Override
     public int hashCode() {
         int result = 11;
-        result = first.equals(null) ? result : 13 * first.hashCode();
-        result = second.equals(null) ? result : 13 * second.hashCode();
+        result = first == null ? result : 13 * first.hashCode();
+        result = second == null ? result : 13 * second.hashCode();
         return result;
     }
 }
