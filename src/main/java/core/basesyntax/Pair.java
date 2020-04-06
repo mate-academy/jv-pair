@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<F, S> {
     private F firstIncome;
     private S secondIncome;
@@ -20,7 +18,7 @@ class Pair<F, S> {
     }
 
     public static <F, S> Pair of(F f, S s) {
-        return new Pair(f, s);
+        return new Pair<F, S>(f, s);
     }
 
     @Override
@@ -31,9 +29,11 @@ class Pair<F, S> {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Pair pair = (Pair) object;
-        return Objects.equals(firstIncome, pair.firstIncome)
-                && Objects.equals(secondIncome, pair.secondIncome);
+        Pair<F, S> pair = (Pair) object;
+        return (firstIncome == pair.firstIncome || firstIncome != null
+                && firstIncome.equals(pair.firstIncome))
+                && (secondIncome == pair.secondIncome || secondIncome != null
+                && secondIncome.equals(pair.secondIncome));
     }
 
     @Override
