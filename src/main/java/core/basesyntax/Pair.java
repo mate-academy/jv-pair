@@ -29,7 +29,7 @@ class Pair<F, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<F, S> pair = (Pair) o;
         return ((parameter1 == pair.parameter1)
                 || (parameter1 != null && parameter1.equals(pair.parameter1)))
                 && ((parameter2 == pair.parameter2)
