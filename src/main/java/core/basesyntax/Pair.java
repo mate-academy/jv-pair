@@ -11,8 +11,16 @@ class Pair<F, S> {
         this.secondIncome = secondValue;
     }
 
-    public static <F, S> Pair<F, S> of(F f, S s) {
-        return new Pair<>(f, s);
+    public F getFirst() {
+        return firstIncome;
+    }
+
+    public S getSecond() {
+        return secondIncome;
+    }
+
+    public static <F, S> Pair of(F f, S s) {
+        return new Pair(f, s);
     }
 
     @Override
@@ -23,7 +31,7 @@ class Pair<F, S> {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) object;
+        Pair pair = (Pair) object;
         return Objects.equals(firstIncome, pair.firstIncome)
                 && Objects.equals(secondIncome, pair.secondIncome);
     }
@@ -38,13 +46,5 @@ class Pair<F, S> {
             result = 17 * result + secondIncome.hashCode();
         }
         return result;
-    }
-
-    public F getFirst() {
-        return firstIncome;
-    }
-
-    public S getSecond() {
-        return secondIncome;
     }
 }
