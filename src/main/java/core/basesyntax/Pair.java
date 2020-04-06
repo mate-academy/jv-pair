@@ -18,7 +18,7 @@ class Pair<T, E> {
     }
 
     public static <T, E> Pair of(T first, E second) {
-        return new Pair<T, E>(first, second);
+        return new Pair(first, second);
     }
 
     public boolean equals(Object object) {
