@@ -38,9 +38,7 @@ public final class Pair<U, V> {
 
     @Override
     public int hashCode() {
-        int result = 31;
-        result = 17 * result + (first != null ? first.hashCode() : 0);
-        result = 17 * result + (second != null ? second.hashCode() : 0);
-        return result;
+        return 31 + 17 * (first != null ? first.hashCode() : 0)
+                + 17 * (second != null ? second.hashCode() : 0);
     }
 }
