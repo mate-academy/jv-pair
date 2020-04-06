@@ -21,6 +21,18 @@ class Pair<T, E> {
         return secondElement;
     }
 
+    private boolean compareElements(Object firstElement, Object secondElement) {
+        if (firstElement == null && this.secondElement == null) {
+            return true;
+        }
+
+        if (firstElement == null || this.secondElement == null) {
+            return false;
+        }
+
+        return firstElement.equals(secondElement);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -32,24 +44,12 @@ class Pair<T, E> {
         }
 
         if (getClass() == o.getClass()) {
-            Pair<?, ?> pair = (Pair<?, ?>) o;
+            Pair<T, E> pair = (Pair) o;
             return compareElements(pair.firstElement, this.firstElement)
                     && compareElements(pair.secondElement, this.secondElement);
         }
 
         return false;
-    }
-
-    private boolean compareElements(Object firstElement, Object secondElement) {
-        if (firstElement == null && this.secondElement == null) {
-            return true;
-        }
-
-        if (firstElement == null || this.secondElement == null) {
-            return false;
-        }
-
-        return firstElement.equals(secondElement);
     }
 
     @Override
