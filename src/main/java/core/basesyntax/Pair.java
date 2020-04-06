@@ -30,7 +30,7 @@ class Pair<K, V> {
             return false;
         }
 
-        Pair<K, V> pair = (Pair<K, V>) o;
+        Pair<K, V> pair = (Pair) o;
 
         if (key != null ? !key.equals(pair.key) : pair.key != null) {
             return false;
