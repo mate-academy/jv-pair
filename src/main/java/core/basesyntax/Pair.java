@@ -2,7 +2,7 @@ package core.basesyntax;
 
 import java.util.Objects;
 
-class Pair <K, V> {
+class Pair<K, V> {
     private K key;
     private V value;
 
@@ -25,11 +25,15 @@ class Pair <K, V> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pair)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Pair)) {
+            return false;
+        }
         Pair pair = (Pair) o;
-        return Objects.equals(key, ((Pair) o).key) &&
-                Objects.equals(value, ((Pair) o).value);
+        return Objects.equals(key, ((Pair) o).key)
+                && Objects.equals(value, ((Pair) o).value);
     }
 
     @Override
