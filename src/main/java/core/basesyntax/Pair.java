@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-class Pair <F, S> {
+class Pair<F, S> {
     private F first;
     private S second;
 
@@ -43,8 +43,8 @@ class Pair <F, S> {
         }
         Pair pair = (Pair) obj;
         if (pair.getClass().equals(this.getClass())) {
-            return (first == pair.getFirst() || first.equals(pair.getFirst()) )
-                    && (second == pair.getSecond() || second.equals(pair.getSecond()) );
+            return (first == pair.getFirst() || first.equals(pair.getFirst()))
+                    && (second == pair.getSecond() || second.equals(pair.getSecond()));
         }
         return false;
     }
