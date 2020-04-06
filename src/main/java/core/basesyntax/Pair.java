@@ -17,8 +17,8 @@ class Pair<K, V> {
         return second;
     }
 
-    static <K, V> Pair of(K first, V second) {
-        return new Pair(first, second);
+    public static <K, V> Pair of(K first, V second) {
+        return new Pair<K, V>(first, second);
     }
 
     @Override
