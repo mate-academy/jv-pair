@@ -27,7 +27,7 @@ class Pair<F, S> {
         }
         Pair<F, S> pair = (Pair) o;
         return (pair.first == first || (first != null && first.equals(pair.first))
-                && (pair.first == second || (second != null && second.equals(pair.second))));
+                && (pair.second == second || (second != null && second.equals(pair.second))));
     }
 
     @Override
