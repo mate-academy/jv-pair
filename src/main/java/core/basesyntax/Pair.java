@@ -13,11 +13,11 @@ class Pair<K, V> {
         return new Pair(key, value);
     }
 
-    K getFirst() {
+    public K getFirst() {
         return key;
     }
 
-    V getSecond() {
+    public V getSecond() {
         return value;
     }
 
@@ -32,10 +32,8 @@ class Pair<K, V> {
 
         Pair<K, V> pair = (Pair) o;
 
-        if (key != null ? !key.equals(pair.key) : pair.key != null) {
-            return false;
-        }
-        return value != null ? value.equals(pair.value) : pair.value == null;
+        return (pair.value == value || (value != null && value.equals(pair.value)))
+                && (pair.key == key || (key != null && key.equals(pair.key)));
     }
 
     @Override
