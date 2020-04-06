@@ -19,8 +19,8 @@ class Pair<T, S> {
         return secondObject;
     }
 
-    static <T, S> Pair of(T firstObject, S secondObject) {
-        return new Pair(firstObject, secondObject);
+    public static <T, S> Pair of(T firstObject, S secondObject) {
+        return new Pair<T, S>(firstObject, secondObject);
     }
 
     @Override
@@ -31,13 +31,23 @@ class Pair<T, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(firstObject, pair.firstObject)
-                && Objects.equals(secondObject, pair.secondObject);
+        Pair<T, S> pair = (Pair<T, S>) o;
+        if (firstObject != null && secondObject != null) {
+            return firstObject.equals(pair.firstObject) && secondObject.equals(pair.secondObject);
+        } else if (firstObject == null && pair.firstObject == null && secondObject != null ){
+            return secondObject.equals(pair.secondObject);
+        } else if (secondObject == null && pair.secondObject == null && firstObject != null){
+            return firstObject.equals(pair.firstObject);
+        } else {
+            return secondObject == null && pair.secondObject == null && firstObject == null && pair.firstObject == null;
+        }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstObject, secondObject);
+        int result = 31;
+        result = 13 * result * firstObject.hashCode();
+        result = 13 * result * secondObject.hashCode();
+        return result;
     }
 }
