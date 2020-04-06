@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<T, S> {
     private T type1;
     private S type2;
@@ -19,7 +17,7 @@ class Pair<T, S> {
         return type2;
     }
 
-    public static <T, S> Pair<T, S> of(T type1, S type2) {
+    public static <T, S> Pair of(T type1, S type2) {
         return new Pair<>(type1, type2);
     }
 
@@ -31,9 +29,11 @@ class Pair<T, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(type1, pair.type1)
-                && Objects.equals(type2, pair.type2);
+        Pair<T, S> pair = (Pair) o;
+        return type1 == null ? pair.type1 == null
+                : (type1.equals(pair.type1))
+                && type2 == null ? pair.type2 == null
+                : (type2.equals(pair.type2));
     }
 
     @Override
