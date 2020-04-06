@@ -25,8 +25,9 @@ class Pair<L, R> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return compare(first, pair.first) && compare(second, pair.second);
+        Pair<L, R> pair = (Pair) o;
+        return first == null ? pair.first == null : first.equals(pair.first)
+                && second == null ? pair.second == null : second.equals(pair.second);
     }
 
     @Override
@@ -35,11 +36,7 @@ class Pair<L, R> {
                 + (31 * (second == null ? 0 : second.hashCode()));
     }
 
-    public static <L, R> Pair<L, R> of(L first, R second) {
+    public static <L, R> Pair of(L first, R second) {
         return new Pair(first, second);
-    }
-
-    public static <L> boolean compare(L first, L second) {
-        return (first == null ? second == null : first.equals(second));
     }
 }
