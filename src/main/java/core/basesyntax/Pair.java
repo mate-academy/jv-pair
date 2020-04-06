@@ -13,11 +13,11 @@ class Pair<T, F> {
     }
 
     public T getFirst() {
-        return first;
+        return this.first;
     }
 
     public F getSecond() {
-        return second;
+        return this.second;
     }
 
     public static Pair of(Object o1, Object o2) {
