@@ -25,10 +25,9 @@ class Pair<T, K> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<T, K> obj = (Pair<T, K>) o;
-        return first == null && obj.first == null || first != null && first.equals(obj.first)
-                && second == null && obj.second == null || second != null
-                && second.equals(obj.second);
+        Pair<T, K> obj = (Pair) o;
+        return first == obj.first || first != null && first.equals(obj.first)
+                && second == obj.second || second != null && second.equals(obj.second);
     }
 
     @Override
