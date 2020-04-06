@@ -30,7 +30,7 @@ class Pair<T, S> {
             return false;
         }
         if (getClass() == o.getClass()) {
-            Pair<?, ?> test = (Pair<?, ?>) o;
+            Pair<T, S> test = (Pair) o;
             return firstItem == null ? firstItem == null
                 : firstItem.equals(test.firstItem)
                     && secondItem == null ? test.secondItem == null
