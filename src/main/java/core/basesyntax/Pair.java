@@ -7,25 +7,25 @@ package core.basesyntax;
 Конструктор должен быть закрытым (private).
 С корректно реализованным классом Pair должен компилироваться и успешно работать следующий код:*/
 
-class Pair<A, N> {
-    private A age;
-    private N name;
+class Pair<S, U> {
+    private S first;
+    private U second;
 
-    private Pair(A age, N name) {
-        this.age = age;
-        this.name = name;
+    private Pair(S first, U second) {
+        this.first = first;
+        this.second = second;
     }
 
-    public static <A, N> Pair of(A age, N name) {
-        return new Pair(age, name);
+    public static <S, U> Pair of(S first, U second) {
+        return new Pair(first, second);
     }
 
-    public A getFirst() {
-        return age;
+    public S getFirst() {
+        return first;
     }
 
-    public N getSecond() {
-        return name;
+    public U getSecond() {
+        return second;
     }
 
     @Override
@@ -37,15 +37,15 @@ class Pair<A, N> {
             return false;
         }
         Pair pair = (Pair) o;
-        return (age == pair.age || age != null && age.equals(pair.age))
-                && (name == pair.name || name != null && name.equals(pair.name));
+        return (first == pair.first || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null && second.equals(pair.second));
     }
 
     @Override
     public int hashCode() {
         int result = 31;
-        result = 31 * result + (age != null ? age.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (first != null ? first.hashCode() : 0);
+        result = 31 * result + (second != null ? second.hashCode() : 0);
         return result;
     }
 }
