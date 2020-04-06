@@ -11,21 +11,43 @@ class Pair<F, S> {
         this.secondValue = secondValue;
     }
 
-    public static <F, S> Pair<F, S> of(F first, S second) {
+    public static <F, S> Pair of(F first, S second) {
         return new Pair<>(first, second);
     }
 
+    public F getFirst() {
+        return firstValue;
+    }
+
+    public S getSecond() {
+        return secondValue;
+    }
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(firstValue, pair.firstValue)
-                && Objects.equals(secondValue, pair.secondValue);
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Pair other = (Pair) obj;
+        if ( (firstValue != null
+                && !firstValue.equals(other.firstValue))
+                || (other.firstValue != null
+                && !other.firstValue.equals(firstValue)) ) {
+            return false;
+        }
+        if ( (secondValue != null
+                && !secondValue.equals(other.secondValue))
+                || (other.secondValue != null
+                && !other.secondValue.equals(secondValue)) ) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -38,13 +60,5 @@ class Pair<F, S> {
             result = 31 * result + secondValue.hashCode();
         }
         return result;
-    }
-
-    public F getFirst() {
-        return firstValue;
-    }
-
-    public S getSecond() {
-        return secondValue;
     }
 }
