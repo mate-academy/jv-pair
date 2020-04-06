@@ -29,9 +29,9 @@ public final class Pair<U, V> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return first == null ? pair.first == null : first.equals(pair.first)
-                && second == null ? pair.second == null : second.equals(pair.second);
+        Pair<U, V> pair = (Pair) o;
+        return (first == pair.first || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null && second.equals(pair.second));
     }
 
     @Override
