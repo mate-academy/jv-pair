@@ -31,7 +31,7 @@ class Pair<T1, T2> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<T1, T2> pair = (Pair) o;
         return Objects.equals(first, pair.first)
                 && Objects.equals(second, pair.second);
     }
