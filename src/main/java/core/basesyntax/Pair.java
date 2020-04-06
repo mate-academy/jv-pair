@@ -18,7 +18,7 @@ class Pair<T, S> {
     }
 
     public static <T, S> Pair of(T firstElem, S secondElem) {
-        return new Pair<>(firstElem, secondElem);
+        return new Pair<T,S>(firstElem, secondElem);
     }
 
     @Override
@@ -29,9 +29,9 @@ class Pair<T, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<T, S> pair = (Pair<T, S>) o;
-        return (first == null && pair.first == null || first.equals(pair.first))
-            && (second == null && pair.second == null || second.equals(pair.second));
+        Pair<T, S> pair = (Pair) o;
+        return (first == pair.first || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null && second.equals(pair.second));
 
     }
 
