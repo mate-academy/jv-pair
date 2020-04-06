@@ -9,8 +9,8 @@ class Pair<K, V> {
         this.second = second;
     }
 
-    public static <K, V> Pair<K, V> of(K first, V second) {
-        return new Pair<>(first, second);
+    public static <K, V> Pair of(K first, V second) {
+        return new Pair<K, V>(first, second);
     }
 
     public K getFirst() {
@@ -28,9 +28,11 @@ class Pair<K, V> {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Pair<K, V> otherPair = (Pair<K, V>) object;
-        return first == null ? otherPair.first == null : first.equals(otherPair.first)
-                && second == null ? otherPair.second == null : second.equals(otherPair.second);
+        Pair<K, V> otherPair = (Pair) object;
+        return first == null && otherPair.first == null
+                || first != null && first.equals(otherPair.first)
+                && second == null && otherPair.second == null
+                || second != null && second.equals(otherPair.second);
     }
 
     public int hashCode() {
