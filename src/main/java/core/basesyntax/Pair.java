@@ -41,10 +41,10 @@ class Pair<F, S> {
         if (obj == null) {
             return false;
         }
-        Pair pair = (Pair) obj;
+        Pair <F, S> pair = (Pair) obj;
         if (pair.getClass().equals(this.getClass())) {
-            return (first == pair.getFirst() || first.equals(pair.getFirst()))
-                    && (second == pair.getSecond() || second.equals(pair.getSecond()));
+            return (first == pair.getFirst() || first != null && pair.getFirst() != null && first.equals(pair.getFirst()))
+                    && (second == pair.getSecond() || second != null && pair.getSecond() != null && second.equals(pair.getSecond()));
         }
         return false;
     }
