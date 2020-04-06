@@ -33,14 +33,11 @@ class Pair<T, S> {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) obj;
-        if (first != null ? !first.equals(pair.first) : pair.first != null) {
-            return false;
-        }
-        if (second != null ? !second.equals(pair.second) : pair.second != null) {
-            return false;
-        }
-        return true;
+        Pair<T, S> pair = (Pair) obj;
+        return ((pair.first == null && first == null)
+                || (first != null && first.equals(pair.first)))
+                && ((pair.second == null && second == null)
+                || (second != null && second.equals(pair.second)));
     }
 
     @Override
