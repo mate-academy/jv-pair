@@ -1,44 +1,45 @@
 package core.basesyntax;
 
-import java.util.Objects;
+class Pair<K, V> {
+    private K first;
+    private V second;
 
-class Pair<T1, T2> {
-    private T1 first;
-    private T2 second;
-
-    private Pair(T1 first, T2 second) {
+    private Pair(K first, V second) {
         this.first = first;
         this.second = second;
     }
 
-    public static <T1, T2> Pair<T1, T2> of(T1 first, T2 second) {
+    public static <K, V> Pair of(K first, V second) {
         return new Pair(first, second);
     }
 
-    public T1 getFirst() {
+    public K getFirst() {
         return first;
     }
 
-    public T2 getSecond() {
+    public V getSecond() {
         return second;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(first, pair.first)
-                && Objects.equals(second, pair.second);
+        Pair<K, V> pair = (Pair) obj;
+        return ((first == pair.first) || (first != null && first.equals(pair.first)))
+                && ((second == pair.second) || (second != null && second.equals(pair.second)));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(first, second);
+        int hash = 31;
+        hash = 31 * hash + (this.first != null ? first.hashCode() : 0);
+        hash = 31 * hash + (this.second != null ? second.hashCode() : 0);
+        return hash;
     }
 }
