@@ -4,7 +4,7 @@ class Pair<K, V> {
     private K first;
     private V second;
 
-    public Pair(K first, V second) {
+    private Pair(K first, V second) {
         this.first = first;
         this.second = second;
     }
@@ -32,9 +32,11 @@ class Pair<K, V> {
         }
 
         if (object.getClass().equals(Pair.class)) {
-            Pair pair = (Pair) object;
-            return first == null ? pair.first == null : first.equals(pair.first)
-                    && second == null ? pair.second == null : second.equals(pair.second);
+            Pair<K, V> pair = (Pair) object;
+            return ((first == pair.first)
+                    || first != null && first.equals(pair.first))
+                    && ((second == pair.second)
+                    || (second != null && second.equals(pair.second)));
         }
         return false;
     }
