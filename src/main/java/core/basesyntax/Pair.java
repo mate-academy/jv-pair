@@ -25,10 +25,9 @@ class Pair<F, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return first != null ? (first.equals(pair.first)
-                && second.equals(pair.second))
-                : (first == pair.first && second == pair.second);
+        Pair<F, S> pair = (Pair) o;
+        return (pair.first == first || (first != null && first.equals(pair.first))
+                && (pair.first == second || (second != null && second.equals(pair.second))));
     }
 
     @Override
