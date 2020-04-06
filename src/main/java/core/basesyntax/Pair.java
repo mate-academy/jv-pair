@@ -27,10 +27,11 @@ class Pair<T,A> {
             return false;
         }
         if (o.getClass().equals(getClass())) {
-            Pair<?, ?> pair = (Pair<?, ?>) o;
+            Pair<T, A> pair = (Pair) o;
             if (pair.one == null && one == null && pair.two == null && two == null) {
-                return one == pair.one && two == pair.two;
+                return true;
             }
+            assert one != null;
             return one.equals(pair.one) && two.equals(pair.two);
         }
         return false;
