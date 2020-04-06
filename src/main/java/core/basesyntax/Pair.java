@@ -22,18 +22,20 @@ class Pair<K, V> {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (obj.getClass().equals(getClass())) {
-            Pair pair = (Pair) obj;
-            return this.hashCode() == pair.hashCode();
+
+        Pair<?, ?> pair = (Pair<?, ?>) o;
+
+        if (key != null ? !key.equals(pair.key) : pair.key != null) {
+            return false;
         }
-        return false;
+        return value != null ? value.equals(pair.value) : pair.value == null;
     }
 
     @Override
