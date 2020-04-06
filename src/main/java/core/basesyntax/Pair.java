@@ -2,41 +2,49 @@ package core.basesyntax;
 
 import java.util.Objects;
 
-class Pair<firstVar,secondVar> {
-    private firstVar firstValue;
-    private secondVar secondValue;
+class Pair<F, S> {
+    private F firstValue;
+    private S secondValue;
 
-    private Pair(firstVar firstValue, secondVar secondValue) {
+    private Pair(F firstValue, S secondValue) {
         this.firstValue = firstValue;
         this.secondValue = secondValue;
     }
 
-    public static <firstVar, secondVar> Pair<firstVar, secondVar> of(firstVar first, secondVar second) {
+    public static <F, S> Pair<F, S> of(F first, S second) {
         return new Pair<>(first, second);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(firstValue, pair.firstValue) &&
-                Objects.equals(secondValue, pair.secondValue);
+        return Objects.equals(firstValue, pair.firstValue)
+                && Objects.equals(secondValue, pair.secondValue);
     }
 
     @Override
     public int hashCode() {
         int result = 1;
-        if (firstValue != null) result = 31 * result + firstValue.hashCode();
-        if (secondValue != null) result = 31 * result + secondValue.hashCode();
+        if (firstValue != null) {
+            result = 31 * result + firstValue.hashCode();
+        }
+        if (secondValue != null) {
+            result = 31 * result + secondValue.hashCode();
+        }
         return result;
     }
 
-    public firstVar getFirst() {
+    public F getFirst() {
         return firstValue;
     }
 
-    public secondVar getSecond() {
+    public S getSecond() {
         return secondValue;
     }
 }
