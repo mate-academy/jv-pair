@@ -1,24 +1,24 @@
 package core.basesyntax;
 
 class Pair<T, K> {
-    private T number;
-    private K string;
+    private T first;
+    private K second;
 
-    private Pair(T number, K string) {
-        this.number = number;
-        this.string = string;
+    private Pair(T first, K second) {
+        this.first = first;
+        this.second = second;
     }
 
-    public <T> T getFirst() {
-        return (T) number;
+    public T getFirst() {
+        return first;
     }
 
-    public <K> K getSecond() {
-        return (K) string;
+    public K getSecond() {
+        return second;
     }
 
-    public static <T, K> Pair of(T number, K string) {
-        return new Pair<T, K>(number, string);
+    public static <T, K> Pair of(T first, K second) {
+        return new Pair<T, K>(first, second);
     }
 
     @Override
@@ -33,15 +33,15 @@ class Pair<T, K> {
             return false;
         }
         Pair<T, K> pair = (Pair<T, K>) obj;
-        return (number == pair.number || number != null && number.equals(pair.number))
-                && (string == pair.string || string != null && string.equals(pair.string));
+        return (first == pair.first || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null && second.equals(pair.second));
     }
 
     @Override
     public int hashCode() {
         int result = 17;
-        result = number == null ? 31 * result : number.hashCode();
-        result = string == null ? 31 * result : string.hashCode();
+        result = first == null ? 31 * result : first.hashCode();
+        result = second == null ? 31 * result : second.hashCode();
         return result;
     }
 }
