@@ -4,7 +4,7 @@ class Pair<T, S> {
     private T first;
     private S second;
 
-    public Pair(T first, S second) {
+    private Pair(T first, S second) {
         this.first = first;
         this.second = second;
     }
@@ -17,8 +17,8 @@ class Pair<T, S> {
         return second;
     }
 
-    public static <T, S> Pair<T, S> of(T first, S second) {
-        return new Pair<>(first, second);
+    public static <T, S> Pair of(T first, S second) {
+        return new Pair<T, S>(first, second);
     }
 
     @Override
@@ -29,9 +29,11 @@ class Pair<T, S> {
         if (obj == null || !obj.getClass().equals(getClass())) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) obj;
-        return pair.first != null ? pair.first.equals(first) : first == null
-                && pair.second != null ? pair.second.equals(second) : second == null;
+        Pair<T, S> pair = (Pair) obj;
+        return (pair.getFirst() == this.first
+                || (pair.getFirst() != null && pair.getFirst().equals(this.first)))
+                && (pair.getSecond() == this.second)
+                || (pair.getSecond() != null && pair.getSecond().equals(this.second));
     }
 
     @Override
