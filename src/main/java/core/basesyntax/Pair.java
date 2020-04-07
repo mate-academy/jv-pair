@@ -1,12 +1,10 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<T, S> {
     private T firstItem;
     private S secondItem;
 
-    public Pair(T firstItem, S secondItem) {
+    private Pair(T firstItem, S secondItem) {
         this.firstItem = firstItem;
         this.secondItem = secondItem;
     }
@@ -32,8 +30,10 @@ class Pair<T, S> {
             return false;
         }
         Pair<T, S> test = (Pair) o;
-        return Objects.equals(firstItem,test.firstItem)
-                    && Objects.equals(secondItem,test.secondItem);
+        return (firstItem == test.firstItem
+                || firstItem.equals(test.firstItem))
+                    && (secondItem == test.secondItem
+                    || secondItem.equals(test.secondItem));
     }
 
     @Override
