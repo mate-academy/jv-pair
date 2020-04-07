@@ -19,7 +19,6 @@ class Pair<F, S> {
     }
 
     @Override
-
     public boolean equals(Object object) {
         if (this == object) {
             return true;
@@ -37,15 +36,15 @@ class Pair<F, S> {
     @Override
     public int hashCode() {
         int constant = 19;
-        if (getFirst().equals(0)) {
+        if (first == null) {
             constant = constant * 29;
         } else {
-            constant = constant * 29 + getFirst().hashCode();
+            constant = constant * 29 + first.hashCode();
         }
-        if (getSecond().equals(0)) {
+        if (second == null) {
             constant = constant * 29;
         } else {
-            constant = constant * 29 + getSecond().hashCode();
+            constant = constant * 29 + second.hashCode();
         }
         return constant;
     }
