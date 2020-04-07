@@ -33,10 +33,9 @@ class Pair<F, S> {
         }
 
         if (obj.getClass().equals(getClass())) {
-            Pair<F, S> pair = (Pair<F, S>) obj;
-
-            return first == null ? pair.first == null : first.equals(pair.first)
-                    && second == null ? pair.second == null : second.equals(pair.second);
+            Pair<F, S> pair = (Pair) obj;
+            return (pair.first == first || first != null && first.equals(pair.first))
+                    && (pair.second == second || second != null && second.equals(pair.second));
         }
 
         return false;
