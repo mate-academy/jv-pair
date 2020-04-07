@@ -13,11 +13,11 @@ class Pair<T1, T2> {
         return new Pair<>(first, second);
     }
 
-    T1 getFirst() {
+    public T1 getFirst() {
         return this.first;
     }
 
-    T2 getSecond() {
+    public T2 getSecond() {
         return this.second;
     }
 
@@ -30,27 +30,10 @@ class Pair<T1, T2> {
             return false;
         }
         Pair<T1, T2> pair = (Pair) o;
-        return compareFirst(pair) && compareSecond(pair);
-    }
-
-    private boolean compareFirst(Pair pair) {
-        if (first == null && pair.first == null) {
-            return true;
-        }
-        if (first == null || pair.first == null) {
-            return false;
-        }
-        return first.equals(pair.first);
-    }
-
-    private boolean compareSecond(Pair pair) {
-        if (second == null && pair.second == null) {
-            return true;
-        }
-        if (second == null || pair.second == null) {
-            return false;
-        }
-        return second.equals(pair.second);
+        return (pair.getFirst() == this.first
+                || (pair.getFirst() != null && pair.getFirst().equals(this.first)))
+                && (pair.getSecond() == this.second
+                || (pair.getSecond() != null && pair.getSecond().equals(this.second)));
     }
 
     @Override
