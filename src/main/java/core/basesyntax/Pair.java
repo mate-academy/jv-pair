@@ -17,7 +17,7 @@ class Pair<T, S> {
         return second;
     }
 
-    static <T, S> Pair of(T firstItem, S secondItem) {
+    public static <T, S> Pair of(T firstItem, S secondItem) {
         return new Pair(firstItem, secondItem);
     }
 
@@ -29,24 +29,20 @@ class Pair<T, S> {
         if (obj == null || (getClass() != obj.getClass())) {
             return false;
         }
-        if ((this.first == null ^ ((Pair<T, S>) obj).first == null)
-                || (this.second == null ^ ((Pair<T, S>) obj).second == null)) {
-            return false;
-        }
-        return ((((Pair<T, S>) obj).first == this.first)
-                || this.first.equals(((Pair<T, S>) obj).first))
-                && ((((Pair<T, S>) obj).second == this.second)
-                || this.second.equals(((Pair<T, S>) obj).second));
-
+        Pair<T, S> pair = (Pair) obj;
+        return (pair.first == first || first != null
+                && first.equals(pair.first))
+                && (pair.second == second || second != null
+                && second.equals(pair.second));
     }
 
     @Override
     public int hashCode() {
         int result = 3;
-        if (this.getFirst() != null) {
+        if (first != null) {
             result = result * 11 + this.first.hashCode();
         }
-        if (this.getSecond() != null) {
+        if (second != null) {
             result = result * 11 + this.second.hashCode();
         }
         return result;
