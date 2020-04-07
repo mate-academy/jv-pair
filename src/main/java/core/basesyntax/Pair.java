@@ -1,8 +1,8 @@
 package core.basesyntax;
 
 public class Pair<F, S> {
-    F firstPair;
-    S secondPair;
+    private F firstPair;
+    private S secondPair;
 
     private Pair(F firstPair, S secondPair) {
         this.firstPair = firstPair;

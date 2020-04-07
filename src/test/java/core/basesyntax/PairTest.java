@@ -39,7 +39,7 @@ public class PairTest {
 
     @Test
     public void pairsAreEquals() {
-        boolean actualResult = firstPair.equals(thirdPair);
+            boolean actualResult = firstPair.equals(thirdPair);
         Assert.assertTrue("The result should be true after comparing two the same pairs ",
                 actualResult);
     }
