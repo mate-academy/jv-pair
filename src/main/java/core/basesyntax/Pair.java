@@ -33,10 +33,10 @@ class Pair<T, E> {
 
         if (getClass() == o.getClass()) {
             Pair<T, E> pair = (Pair) o;
-            return this.firstElement == pair.firstElement
-                    || (this.firstElement != null && this.firstElement.equals(pair.firstElement))
-                    || this.secondElement == pair.secondElement
-                    || (this.secondElement != null
+            return (this.firstElement == pair.firstElement
+                    || this.firstElement != null && this.firstElement.equals(pair.firstElement))
+                    && (this.secondElement == pair.secondElement
+                    || this.secondElement != null
                     && this.secondElement.equals(pair.secondElement));
         }
 
