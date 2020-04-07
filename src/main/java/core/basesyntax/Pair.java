@@ -32,9 +32,9 @@ class Pair<F, S> {
         Pair<F,S> pair = (Pair)object;
         if (object.getClass().equals(Pair.class)) {
             return firstElement == null && pair.firstElement == null
-                    ? true : firstElement.equals(pair.firstElement)
+                    ? true : firstElement != null && firstElement.equals(pair.firstElement)
                     && secondElement == null && pair.secondElement == null
-                    ? true : secondElement.equals(pair.secondElement);
+                    ? true : secondElement != null && secondElement.equals(pair.secondElement);
         }
         return false;
     }
