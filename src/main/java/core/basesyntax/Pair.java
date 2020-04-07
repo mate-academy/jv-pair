@@ -27,13 +27,8 @@ class Pair<T,V> {
             return false;
         }
         Pair<T, V> pair = (Pair) o;
-        if (first != null && !first.equals(pair.first)) {
-            return false;
-        }
-        if (second != null && !second.equals(pair.second)) {
-            return false;
-        }
-        return true;
+        return (first == null || first.equals(pair.first))
+                && (second == null || second.equals(pair.second));
     }
 
     @Override
