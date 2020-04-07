@@ -29,10 +29,8 @@ class Pair<K, V> {
             return false;
         }
         Pair<K, V> otherPair = (Pair) object;
-        return first == null && otherPair.first == null
-                || first != null && first.equals(otherPair.first)
-                && second == null && otherPair.second == null
-                || second != null && second.equals(otherPair.second);
+        return first == otherPair.first || first != null && first.equals(otherPair.first)
+                && second == otherPair.second || second != null && second.equals(otherPair.second);
     }
 
     public int hashCode() {
