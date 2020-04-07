@@ -44,7 +44,7 @@ class Pair<F, S> {
         Pair<F, S> pair = (Pair) obj;
         if (pair.getClass().equals(this.getClass())) {
             return (first == pair.getFirst()
-                    || first != null && pair.getFirst() != null
+                    || first != null 
                     && first.equals(pair.getFirst()))
                     && (second == pair.getSecond()
                     || second != null && pair.getSecond() != null
