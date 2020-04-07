@@ -39,7 +39,7 @@ class Pair<F, S> {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<F,S> pair = (Pair) o;
 
         return (getFirst() == pair.getFirst() || getFirst() != null
                 && getFirst().equals(pair.getFirst()))
