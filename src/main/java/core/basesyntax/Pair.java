@@ -27,8 +27,9 @@ class Pair<F, S> {
         }
         Pair<F, S> pair = (Pair) o;
         return (pair.first == null && first == null)
-                || (((first != null && first.equals(pair.first)))
-                && (second != null && second.equals(pair.second)));
+                || (first != null && first.equals(pair.first))
+                && (pair.second == null && second == null)
+                || (second != null && second.equals(pair.second));
     }
 
     @Override
@@ -40,7 +41,6 @@ class Pair<F, S> {
     }
 
     public static <F, S> Pair of(F first, S second) {
-        Pair<F, S> obj = new Pair(first, second);
-        return obj;
+        return new Pair(first, second);
     }
 }
