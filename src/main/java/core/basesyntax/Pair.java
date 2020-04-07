@@ -31,8 +31,10 @@ class Pair<T,A> {
             if (pair.one == null && one == null && pair.two == null && two == null) {
                 return true;
             }
-            assert one != null;
-            return one.equals(pair.one) && two.equals(pair.two);
+            return (pair.getFirst() == this.one
+                    || (pair.getFirst() != null && pair.getFirst().equals(this.one)))
+                    && (pair.getSecond() == this.two
+                    || (pair.getSecond() != null && pair.getSecond().equals(this.two)));
         }
         return false;
     }
@@ -44,7 +46,7 @@ class Pair<T,A> {
     }
 
     public static <T,A> Pair of(T one, A two) {
-        Pair<T,A> x = new Pair<T,A>(one, two);
-        return x;
+        Pair<T,A> pairOF = new Pair<T,A>(one, two);
+        return pairOF;
     }
 }
