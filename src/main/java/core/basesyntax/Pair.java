@@ -10,7 +10,7 @@ class Pair<T, S> {
     }
 
     public static <T, S> Pair of(T first, S second) {
-        return new Pair(first, second);
+        return new Pair<T, S>(first, second);
     }
 
     public T getFirst() {
@@ -32,10 +32,10 @@ class Pair<T, S> {
 
         Pair<T, S> pair = (Pair) o;
 
-        if (first != null ? !first.equals(pair.first) : pair.first != null) {
-            return false;
-        }
-        return second != null ? second.equals(pair.second) : pair.second == null;
+        return (pair.getFirst() == this.first
+                || (pair.getFirst() != null && pair.getFirst().equals(this.first)))
+                && (pair.getSecond() == this.second
+                || (pair.getSecond() != null && pair.getSecond().equals(this.second)));
     }
 
     @Override
