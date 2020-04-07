@@ -17,8 +17,8 @@ class Pair<T, S> {
         return second;
     }
 
-    static <T, S> Pair of(T t, S s) {
-        return new Pair(t, s);
+    public static <T, S> Pair of(T t, S s) {
+        return new Pair<T, S>(t, s);
     }
 
     @Override
@@ -30,12 +30,9 @@ class Pair<T, S> {
             return false;
         }
 
-        Pair<T, S> pair = (Pair<T, S>) obj;
-
-        if (first != null ? !first.equals(pair.first) : pair.first != null) {
-            return false;
-        }
-        return second != null ? second.equals(pair.second) : pair.second == null;
+        Pair<T, S> pair = (Pair) obj;
+        return ((first == pair.first) || (first != null && first.equals(pair.first)))
+                && ((second == pair.second) || (second != null && second.equals(pair.second)));
     }
 
     @Override
