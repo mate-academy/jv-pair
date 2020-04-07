@@ -1,24 +1,24 @@
 package core.basesyntax;
 
-class Pair<T1, T2> {
-    private T1 first;
-    private T2 second;
+class Pair<T, S> {
+    private T first;
+    private S second;
 
-    private Pair(T1 firstItem, T2 secondItem) {
+    private Pair(T firstItem, S secondItem) {
         this.first = firstItem;
         this.second = secondItem;
     }
 
-    public T1 getFirst() {
+    public T getFirst() {
         return first;
     }
 
-    public T2 getSecond() {
+    public S getSecond() {
         return second;
     }
 
-    static <T1, T2> Pair of(T1 t1, T2 t2) {
-        return new Pair(t1, t2);
+    static <T, S> Pair of(T firstItem, S secondItem) {
+        return new Pair(firstItem, secondItem);
     }
 
     @Override
@@ -29,14 +29,14 @@ class Pair<T1, T2> {
         if (obj == null || (getClass() != obj.getClass())) {
             return false;
         }
-        if ((this.first == null ^ ((Pair<T1, T2>) obj).first == null)
-                || (this.second == null ^ ((Pair<T1, T2>) obj).second == null)) {
+        if ((this.first == null ^ ((Pair<T, S>) obj).first == null)
+                || (this.second == null ^ ((Pair<T, S>) obj).second == null)) {
             return false;
         }
-        return ((this.first == null && ((Pair<T1, T2>) obj).first == null)
-                || this.first.equals(((Pair<T1, T2>) obj).first))
-                && ((this.second == null && ((Pair<T1, T2>) obj).second == null)
-                || this.second.equals(((Pair<T1, T2>) obj).second));
+        return ((((Pair<T, S>) obj).first == this.first)
+                || this.first.equals(((Pair<T, S>) obj).first))
+                && ((((Pair<T, S>) obj).second == this.second)
+                || this.second.equals(((Pair<T, S>) obj).second));
 
     }
 
