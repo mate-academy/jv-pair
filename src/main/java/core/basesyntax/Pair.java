@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-class Pair<F, S> {
+public class Pair<F, S> {
     F firstPair;
     S secondPair;
 
