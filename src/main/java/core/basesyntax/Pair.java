@@ -30,24 +30,18 @@ class Pair<T, S> {
             return false;
         }
         Pair<T, S> pair = (Pair<T, S>) o;
-        if (firstObject != null && secondObject != null) {
-            return firstObject.equals(pair.firstObject) && secondObject.equals(pair.secondObject);
-        } else if (firstObject == null && pair.firstObject == null && secondObject != null) {
-            return secondObject.equals(pair.secondObject);
-        } else if (secondObject == null && pair.secondObject == null && firstObject != null) {
-            return firstObject.equals(pair.firstObject);
-        } else {
-            return secondObject == null && pair.secondObject == null
-                    && firstObject == null
-                    && pair.firstObject == null;
-        }
+
+        return (firstObject == pair.firstObject
+                || (firstObject != null && firstObject.equals(pair.firstObject)))
+                && (secondObject == pair.secondObject
+                || (secondObject != null && secondObject.equals(secondObject)));
     }
 
     @Override
     public int hashCode() {
         int result = 31;
-        result = 13 * result * firstObject.hashCode();
-        result = 13 * result * secondObject.hashCode();
+        result = 13 * result + (firstObject != null ? firstObject.hashCode() : 0);
+        result = 13 * result + (secondObject != null ? secondObject.hashCode() : 0);
         return result;
     }
 }
