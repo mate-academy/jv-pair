@@ -28,9 +28,6 @@ class Pair<T,A> {
         }
         if (o.getClass().equals(getClass())) {
             Pair<T, A> pair = (Pair) o;
-            if (pair.one == null && one == null && pair.two == null && two == null) {
-                return true;
-            }
             return (pair.getFirst() == this.one
                     || (pair.getFirst() != null && pair.getFirst().equals(this.one)))
                     && (pair.getSecond() == this.two
