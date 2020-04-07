@@ -36,13 +36,10 @@ class Pair<K, V> {
     }
 
     private boolean compareElement(Pair obj1, Pair obj2) {
-        if (obj1.value1 == null && obj2.value1 == null
-                && obj1.value2 == null && obj2.value2 == null) {
-            return true;
-        } else {
-            return obj1.value1.equals(obj2.value1) && obj1.value2.equals(obj2.value2);
-        }
-
+        return (obj1.value1 == obj2.value1
+                || (obj1.value1 != null && obj1.value1.equals(obj2.value1)))
+                && (obj1.value2 == obj2.value2
+                || (obj1.value2 != null && obj1.value2.equals(obj2.value2)));
     }
 
     public int hashCode() {
