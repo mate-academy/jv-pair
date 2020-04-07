@@ -47,7 +47,7 @@ class Pair<F, S> {
                     || first != null 
                     && first.equals(pair.getFirst()))
                     && (second == pair.getSecond()
-                    || second != null && pair.getSecond() != null
+                    || second != null
                     && second.equals(pair.getSecond()));
         }
         return false;
