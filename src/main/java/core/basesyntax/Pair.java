@@ -1,8 +1,8 @@
 package core.basesyntax;
 
 class Pair<F, S> {
-    F parameter1;
-    S parameter2;
+    private F parameter1;
+    private S parameter2;
 
     private Pair(F parameter1, S parameter2) {
         this.parameter1 = parameter1;
@@ -10,7 +10,7 @@ class Pair<F, S> {
     }
 
     public static <F, S> Pair of(F f, S s) {
-        return new Pair(f, s);
+        return new Pair<F, S>(f, s);
     }
 
     public F getFirst() {
