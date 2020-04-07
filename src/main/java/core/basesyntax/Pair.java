@@ -9,15 +9,15 @@ class Pair<T, S> {
         this.secondObject = secondObject;
     }
 
-    static <T, S> Pair of(T firstObject, S secondObject) {
+    public static <T, S> Pair of(T firstObject, S secondObject) {
         return new Pair<>(firstObject, secondObject);
     }
 
-    T getFirst() {
+    public T getFirst() {
         return firstObject;
     }
 
-    S getSecond() {
+    public S getSecond() {
         return secondObject;
     }
 
@@ -30,7 +30,7 @@ class Pair<T, S> {
             return false;
         }
         if (object.getClass() == Pair.class) {
-            Pair pair = (Pair) object;
+            Pair<T, S> pair = (Pair) object;
             return (this.firstObject == null && pair.firstObject == null)
                     && (this.secondObject == null && pair.secondObject == null)
                     || this.firstObject.equals(pair.firstObject)
