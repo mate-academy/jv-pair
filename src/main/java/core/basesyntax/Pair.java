@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-class Pair<T, S> {
+public class Pair<T, S> {
     T first;
     S second;
 
@@ -28,25 +28,16 @@ class Pair<T, S> {
             return true;
         }
 
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
         Pair<T, S> other = (Pair) obj;
 
-        if (first == null) {
-            if (second == null) {
-                return other.first == null && other.second == null;
-            }
-
-            return other.first == null && second.equals(other.second);
-        }
-
-        if (second == null) {
-            return first.equals(other.first) && other.second == null;
-        }
-
-        return first.equals(other.first) && second.equals(other.second);
+        return (other.getFirst() == this.first
+                || (other.getFirst() != null && other.getFirst().equals(this.first)))
+                && (other.getSecond() == this.second
+                || (other.getSecond() != null && other.getSecond().equals(this.second)));
     }
 
     @Override
