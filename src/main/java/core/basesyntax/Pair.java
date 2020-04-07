@@ -28,9 +28,8 @@ public class Pair<T,K> {
         }
         Pair<T,K> pair = (Pair) object;
         return (first == pair.first
-                || pair != null && first.equals(pair.first))
-                && (second == pair.second
-                || pair != null
+                || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null
                 && second.equals(pair.second));
     }
 
@@ -43,6 +42,6 @@ public class Pair<T,K> {
     }
 
     public static <T,K> Pair of(T first, K second) {
-        return new Pair(first,second);
+        return new Pair<T,K>(first,second);
     }
 }
