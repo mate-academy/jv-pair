@@ -32,20 +32,11 @@ class Pair<F, S> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Pair other = (Pair) obj;
-        if ((firstValue != null
-                && !firstValue.equals(other.firstValue))
-                || (other.firstValue != null
-                && !other.firstValue.equals(firstValue))) {
-            return false;
-        }
-        if ((secondValue != null
-                && !secondValue.equals(other.secondValue))
-                || (other.secondValue != null
-                && !other.secondValue.equals(secondValue))) {
-            return false;
-        }
-        return true;
+        Pair<F, S> other = (Pair) obj;
+        return (firstValue == other.firstValue) || (firstValue != null
+                && firstValue. equals(other.firstValue))
+                && (secondValue == other.secondValue) || (secondValue != null
+                && secondValue. equals(other.secondValue));
     }
 
     @Override
