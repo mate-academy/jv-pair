@@ -26,8 +26,8 @@ class Pair<L, R> {
             return false;
         }
         Pair<L, R> pair = (Pair) o;
-        return first == null ? pair.first == null : first.equals(pair.first)
-                && second == null ? pair.second == null : second.equals(pair.second);
+        return (first == pair.first || first != null && first.equals(pair.first))
+                && (second == pair.second || second != null && second.equals(pair.second));
     }
 
     @Override
@@ -37,6 +37,6 @@ class Pair<L, R> {
     }
 
     public static <L, R> Pair of(L first, R second) {
-        return new Pair(first, second);
+        return new Pair<L, R>(first, second);
     }
 }
