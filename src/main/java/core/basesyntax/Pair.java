@@ -9,11 +9,11 @@ class Pair<K, V> {
         this.second = second;
     }
 
-    K getFirst() {
+    public K getFirst() {
         return first;
     }
 
-    V getSecond() {
+    public V getSecond() {
         return second;
     }
 
