@@ -35,7 +35,7 @@ class Pair<K, V> {
         return false;
     }
 
-    private boolean compareElement(Pair obj1, Pair obj2) {
+    private boolean compareElement(Pair<K, V> obj1, Pair<K, V> obj2) {
         return (obj1.value1 == obj2.value1
                 || (obj1.value1 != null && obj1.value1.equals(obj2.value1)))
                 && (obj1.value2 == obj2.value2
