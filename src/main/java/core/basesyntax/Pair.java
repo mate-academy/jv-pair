@@ -1,24 +1,24 @@
 package core.basesyntax;
 
-class Pair<T1, T2> {
-    private T1 t1;
-    private T2 t2;
+class Pair<K, V> {
+    private K key;
+    private V value;
 
-    private Pair(T1 var1, T2 var2) {
-        this.t1 = var1;
-        this.t2 = var2;
+    private Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
     }
 
-    public T1 getFirst() {
-        return t1;
+    public K getFirst() {
+        return key;
     }
 
-    public T2 getSecond() {
-        return t2;
+    public V getSecond() {
+        return value;
     }
 
-    public static Pair of(Object var1, Object var2) {
-        return new Pair(var1, var2);
+    public static <K, V> Pair of(Object key, Object value) {
+        return new Pair(key, value);
     }
 
     @Override
@@ -31,14 +31,8 @@ class Pair<T1, T2> {
         }
         if (getClass().equals(obj.getClass())) {
             Pair pair = (Pair) obj;
-            if ((t1 == null && pair.t1 != null) || (t1 != null && pair.t1 == null)) {
-                return false;
-            }
-            if ((t2 == null && pair.t2 != null) || (t2 != null && pair.t2 == null)) {
-                return false;
-            }
-            return (t1 == null ? t1 == pair.t1 : t1.equals(pair.t1))
-                    && (t2 == null ? t2 == pair.t2 : t2.equals(pair.t2));
+            return (key == pair.key) || (key != null && key.equals(pair.key))
+                    && (value == pair.value) || (value != null && value.equals(pair.value));
         }
         return false;
     }
@@ -46,25 +40,10 @@ class Pair<T1, T2> {
     @Override
     public int hashCode() {
         int n = 17;
-        n = 31 * n + (t1 != null ? t1.hashCode() : 0);
-        n = 31 * n + (t2 != null ? t1.hashCode() : 0);
+        n = 31 * n + (key != null ? key.hashCode() : 0);
+        n = 31 * n + (value != null ? key.hashCode() : 0);
         return n;
-    }
 
-    public T1 getT1() {
-        return t1;
-    }
-
-    public void setT1(T1 t1) {
-        this.t1 = t1;
-    }
-
-    public T2 getT2() {
-        return t2;
-    }
-
-    public void setT2(T2 t2) {
-        this.t2 = t2;
     }
 }
 
