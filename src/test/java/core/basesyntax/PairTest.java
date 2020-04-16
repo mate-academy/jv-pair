@@ -71,9 +71,12 @@ public class PairTest {
     @Test
     public void pairsAreNotEqualsWithNullParameter() {
         Pair firstPairWithNullParameter = Pair.of(null, null);
-        boolean actualResult = firstPair.equals(firstPairWithNullParameter);
+        boolean actualFirstResult = firstPair.equals(firstPairWithNullParameter);
+        boolean actualSecondResult = firstPairWithNullParameter.equals(firstPair);
         Assert.assertFalse("The result should be false after comparing two the same pairs ",
-                actualResult);
+                actualFirstResult);
+        Assert.assertFalse("The result should be false after comparing two the same pairs ",
+                actualSecondResult);
     }
 
     @Test
@@ -112,6 +115,14 @@ public class PairTest {
                 "methods calling", secondPair.hashCode(), secondPair.hashCode());
         Assert.assertEquals("Hash code in the one object is not the same for multiple hash code " +
                 "methods calling", thirdPair.hashCode(), thirdPair.hashCode());
+    }
+
+    @Test
+    public void sameObjectHashCodeEqualityWithNullParametersTest() {
+        Pair firstPair = Pair.of(null, null);
+        Pair secondPair = Pair.of(null, null);
+        Assert.assertEquals("Hash code in the one object is not the same for multiple hash code " +
+                "methods calling", firstPair.hashCode(), secondPair.hashCode());
     }
 
     @Test
