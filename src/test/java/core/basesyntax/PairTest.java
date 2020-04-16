@@ -123,7 +123,6 @@ public class PairTest {
         Pair secondPair = Pair.of(null, null);
         Assert.assertEquals("Hash code in the one object is not the same for multiple hash code " +
                 "methods calling", firstPair.hashCode(), secondPair.hashCode());
-
     }
 
     @Test
