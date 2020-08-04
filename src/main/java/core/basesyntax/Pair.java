@@ -3,8 +3,8 @@ package core.basesyntax;
 public class Pair<T, K> {
     static final int CONSTANT = 31;
 
-    T first;
-    K second;
+    private T first;
+    private K second;
 
     private Pair(T first, K second) {
         this.first = first;
