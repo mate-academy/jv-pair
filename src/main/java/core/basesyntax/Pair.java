@@ -36,10 +36,10 @@ public class Pair<T, K> {
 
         if (object.getClass().equals(Pair.class)) {
             Pair pair = (Pair) object;
-            return ((null == pair.getFirst() && null == this.first)
+            return (pair.getFirst() == this.first
                     || (null != pair.getFirst() && pair.getFirst().equals(this.first)))
                     &&
-                    ((null == pair.getSecond() && null == this.second)
+                    (pair.getSecond() == this.second
                             || (null != pair.getSecond() && pair.getSecond().equals(this.second)));
         }
         return false;
