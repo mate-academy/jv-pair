@@ -17,8 +17,8 @@ class Pair<I, S> {
         return second;
     }
 
-    public static <I, S> Pair<I,S> of(I first, S second) {
-        return new Pair<I,S>(first, second);
+    public static <I, S> Pair<I, S> of(I first, S second) {
+        return new Pair<I, S>(first, second);
     }
 
     @Override
@@ -32,7 +32,7 @@ class Pair<I, S> {
         if (Pair.class != object.getClass()) {
             return false;
         }
-        Pair<I,S> pair = (Pair) object;
+        Pair<I, S> pair = (Pair) object;
         return first == null ? null == pair.first : first.equals(pair.first)
                 && second == null ? null == pair.second : second.equals(pair.second);
     }
@@ -45,4 +45,3 @@ class Pair<I, S> {
         return result;
     }
 }
-
