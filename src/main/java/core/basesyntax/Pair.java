@@ -1,14 +1,14 @@
 package core.basesyntax;
 
-class Pair<Y> {
-    private Y first;
-    private Y second;
+class Pair<T> {
+    private T first;
+    private T second;
 
-    public Y getFirst() {
+    public T getFirst() {
         return first;
     }
 
-    public Y getSecond() {
+    public T getSecond() {
         return second;
     }
 
