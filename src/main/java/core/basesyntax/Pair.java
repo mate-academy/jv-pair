@@ -37,7 +37,7 @@ class Pair<K, V> {
 
     @Override
     public int hashCode() {
-        int result = 1;
+        int result = 17;
         if (key != null) {
             result *= 31 + key.hashCode();
         }
