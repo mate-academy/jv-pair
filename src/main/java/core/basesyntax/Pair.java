@@ -2,12 +2,11 @@ package core.basesyntax;
 
 import java.util.Objects;
 
-class Pair<T> {
-
+class Pair<T,R> {
     private T first;
-    private T second;
+    private R second;
 
-    private Pair(T first, T second) {
+    private Pair(T first, R second) {
         this.first = first;
         this.second = second;
     }
@@ -16,11 +15,11 @@ class Pair<T> {
         return first;
     }
 
-    public T getSecond() {
+    public R getSecond() {
         return second;
     }
 
-    public static <T> Pair of(T first, T second) {
+    public static <T, R> Pair of(T first, R second) {
         return new Pair(first, second);
     }
 
