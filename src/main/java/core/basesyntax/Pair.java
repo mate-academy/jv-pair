@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<T, K> {
 
     private T first;
@@ -33,8 +31,8 @@ class Pair<T, K> {
             return false;
         }
         Pair<T, K> pair = (Pair<T, K>) object;
-        return Objects.equals(first, pair.first)
-                && Objects.equals(second, pair.second);
+        return (first != null && first.equals(pair.first) || first == pair.first)
+                && (second != null && second.equals(pair.second) || second == pair.second);
 
     }
 
