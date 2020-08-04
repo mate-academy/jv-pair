@@ -4,7 +4,7 @@ public class Pair<T1, T2> {
     private T1 first;
     private T2 second;
 
-    public Pair(T1 first, T2 second) {
+    private Pair(T1 first, T2 second) {
         this.first = first;
         this.second = second;
     }
@@ -25,7 +25,7 @@ public class Pair<T1, T2> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<T1, T2> pair = (Pair) o;
         return (first == pair.first
                 || first != null && first.equals(pair.first))
                 && (second == pair.second
