@@ -30,13 +30,11 @@ class Pair<T, V> {
         if (obj == null) {
             return false;
         }
-        if (obj.getClass().equals(Pair.class)) {
+        if (obj.getClass().equals(getClass())) {
             Pair pair = (Pair) obj;
-            if ((first == pair.getFirst()) || (first != null
-                    && pair.getFirst() != null && first.equals(pair.getFirst()))
+            if ((first == pair.getFirst()) || (first != null && first.equals(pair.getFirst()))
                     && ((second == pair.getSecond())
-                    || (second != null && pair.getSecond() != null
-                    && second.equals(pair.getSecond())))) {
+                    || (second != null && second.equals(pair.getSecond())))) {
                 return true;
             }
         }
