@@ -9,7 +9,7 @@ class Pair<I, S> {
         this.second = second;
     }
 
-    static <I, S> Pair<I, S> of(I first, S second) {
+    public static <I, S> Pair<I, S> of(I first, S second) {
         return new Pair<>(first, second);
     }
 
@@ -38,7 +38,7 @@ class Pair<I, S> {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<I, S> pair = (Pair<I, S>) o;
         return (first == pair.first || (first != null && first.equals(pair.first)))
                 && (second == pair.second || (second != null && second.equals(pair.second)));
     }
