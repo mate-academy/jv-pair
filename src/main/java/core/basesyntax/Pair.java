@@ -29,7 +29,7 @@ class Pair<T, U> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<T, U> pair = (Pair<T, U>) o;
         return (first == pair.first || (first != null && first.equals(pair.first)))
                && (second == pair.second || (second != null && second.equals(pair.second)));
     }
