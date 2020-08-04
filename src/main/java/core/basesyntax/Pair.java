@@ -10,11 +10,11 @@ class Pair<F, S> {
     }
 
     public F getFirst() {
-        return this.firstParameter;
+        return firstParameter;
     }
 
     public S getSecond() {
-        return this.secondParameter;
+        return secondParameter;
     }
 
     public static <F, S> Pair<F, S> of(F first, S second) {
@@ -26,15 +26,15 @@ class Pair<F, S> {
         if (this == o) {
             return true;
         }
-        if (o == null || this.hashCode() != o.hashCode()) {
+        if (o == null) {
             return false;
         }
         if (getClass() == o.getClass()) {
-            Pair<?, ?> pair = (Pair<?, ?>) o;
-            return (((Pair<?, ?>) o).firstParameter == pair.firstParameter
-                    || ((Pair<?, ?>) o).firstParameter.equals(pair.firstParameter))
-                    && (((Pair<?, ?>) o).secondParameter == pair.secondParameter
-                    || ((Pair<?, ?>) o).secondParameter.equals(pair.secondParameter));
+            Pair<F, S> pair = (Pair<F, S>) o;
+            return (firstParameter == pair.firstParameter || firstParameter != null
+                    && firstParameter.equals(pair.firstParameter))
+                    && (secondParameter == pair.secondParameter || secondParameter != null
+                    && secondParameter.equals(pair.secondParameter));
         }
         return false;
     }
