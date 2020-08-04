@@ -34,14 +34,10 @@ class Pair {
         }
         if (getClass() == Pair.class) {
             Pair pair = (Pair) object;
-            return !((first != null && pair.first == null)
-                    || (first == null && pair.first != null)
-                    || (second != null && pair.second == null)
-                    || (second == null && pair.second != null))
-                    && (((first == null && pair.first == null)
-                    || first.equals(pair.first))
-                    && ((second == null && pair.second == null)
-                    || second.equals(pair.second)));
+            return (((first == null) && (pair.first == null))
+                    || (first != null && first.equals(pair.first)))
+                    && (((second == null) && (pair.second == null))
+                    || (second != null && second.equals(pair.second)));
         }
         return false;
     }
