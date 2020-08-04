@@ -10,7 +10,7 @@ class Pair<T, TT> {
     private final TT secondElement;
 
     private Pair(T firstElement, TT secondElement) {
-        isNull = null;
+        this.isNull = null;
         this.firstElement = firstElement;
         this.secondElement = secondElement;
     }
@@ -36,7 +36,7 @@ class Pair<T, TT> {
             return false;
         }
         if (obj.getClass().equals(Pair.class)) {
-            Pair pair = (Pair) obj;
+            Pair<T, TT> pair = (Pair<T, TT>) obj;
             return firstElement == null
                     ? firstElement == pair.firstElement
                     : firstElement.equals(pair.firstElement)
