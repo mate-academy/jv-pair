@@ -1,20 +1,15 @@
 package core.basesyntax;
 
-class Pair {
-    Object first;
-    Object second;
+class Pair<Y> {
+    private Y first;
+    private Y second;
 
-    public Object getFirst() {
+    public Y getFirst() {
         return first;
     }
 
-    public Object getSecond() {
+    public Y getSecond() {
         return second;
-
-    }
-
-    public void setSecond(Object second) {
-        this.second = second;
     }
 
     public static Pair of(Object first, Object second) {
