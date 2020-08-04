@@ -36,8 +36,9 @@ class Pair<T, U> {
 
     @Override
     public int hashCode() {
-        int hash = first == null ? 0 : first.hashCode();
-        hash = second == null ? hash : hash * 31 + second.hashCode();
+        int prime = 31;
+        int hash = first == null ? prime : prime * first.hashCode();
+        hash = second == null ? hash : prime * hash + second.hashCode();
         return hash;
     }
 }
