@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-class Pair <I, S> {
+class Pair<I, S> {
     private I first;
     private S second;
 
