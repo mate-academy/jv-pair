@@ -1,24 +1,24 @@
 package core.basesyntax;
 
 public class Pair<T1, T2> {
-    private T1 t1;
-    private T2 t2;
+    private final T1 firstVariable;
+    private final T2 secondVariable;
 
-    private Pair(T1 t1, T2 t2) {
-        this.t1 = t1;
-        this.t2 = t2;
+    private Pair(T1 firstVariable, T2 secondVariable) {
+        this.firstVariable = firstVariable;
+        this.secondVariable = secondVariable;
     }
 
-    public static <T1, T2> Pair<T1, T2> of(T1 t1, T2 t2) {
-        return new Pair<>(t1, t2);
+    public static <T1, T2> Pair<T1, T2> of(T1 firstVariable, T2 secondVariable) {
+        return new Pair<>(firstVariable, secondVariable);
     }
 
     public T1 getFirst() {
-        return t1;
+        return firstVariable;
     }
 
     public T2 getSecond() {
-        return t2;
+        return secondVariable;
     }
 
     @Override
@@ -30,21 +30,21 @@ public class Pair<T1, T2> {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return (this.getFirst() == null || pair.getFirst() == null)
-                ? this.getFirst() == pair.getFirst()
-                : this.getFirst().equals(pair.getFirst())
-                && (this.getSecond() == null || pair.getSecond() == null)
-                ? this.getSecond() == pair.getSecond()
-                : this.getSecond().equals(pair.getSecond());
+        Pair<T1, T2> pair = (Pair<T1, T2>) o;
+        return (this.firstVariable == null || pair.firstVariable == null)
+                ? this.firstVariable == pair.firstVariable
+                : this.firstVariable.equals(pair.firstVariable)
+                && (this.secondVariable == null || pair.secondVariable == null)
+                ? this.secondVariable == pair.secondVariable
+                : this.secondVariable.equals(pair.secondVariable);
     }
 
     @Override
     public int hashCode() {
         int prime = 31;
         int result = 1;
-        result += prime * result + (t1 == null ? 0 : t1.hashCode());
-        result += prime * result + (t2 == null ? 0 : t2.hashCode());
+        result += prime * result + (firstVariable == null ? 0 : firstVariable.hashCode());
+        result += prime * result + (secondVariable == null ? 0 : secondVariable.hashCode());
         return result;
     }
 }
