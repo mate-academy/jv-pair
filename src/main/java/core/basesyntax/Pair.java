@@ -9,7 +9,7 @@ class Pair<T, V> {
         this.second = second;
     }
 
-    public static <T, V> Pair of(T first, V second) {
+    public static <T, V> Pair<T, V> of(T first, V second) {
         return new Pair<>(first, second);
     }
 
@@ -30,7 +30,7 @@ class Pair<T, V> {
             return false;
         }
         if (getClass().equals(obj.getClass())) {
-            Pair pair = (Pair) obj;
+            Pair<T, V> pair = (Pair<T, V>) obj;
             return (pair.first != null && first != null
                     ? first.equals(pair.first)
                     : pair.first == null && first == null)
