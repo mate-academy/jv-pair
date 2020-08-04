@@ -29,17 +29,18 @@ class Pair<T, K> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return (firstObject == null && pair.firstObject == null
+        Pair<T, K> pair = (Pair<T, K>) o;
+        return (firstObject == pair.firstObject
                 || firstObject != null && firstObject.equals(pair.firstObject))
-                && (secondObject == null && pair.secondObject == null
+                && (secondObject == pair.secondObject
                 || secondObject != null && secondObject.equals(pair.secondObject));
     }
 
     @Override
     public int hashCode() {
-        int hash = firstObject == null ? 0 : firstObject.hashCode();
-        hash = secondObject == null ? 0 : hash * 31 + secondObject.hashCode();
+        int hash = 27;
+        hash = firstObject == null ? 31 * hash : hash * firstObject.hashCode();
+        hash = secondObject == null ? 31 * hash : hash * secondObject.hashCode();
         return hash;
     }
 }
