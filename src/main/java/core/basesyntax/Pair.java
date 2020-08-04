@@ -30,7 +30,7 @@ public class Pair<F, S> {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) object;
+        Pair<F, S> pair = (Pair<F, S>) object;
 
         return (first == null || pair.first == null)
                     ? first == pair.first : first.equals(pair.first)
@@ -43,7 +43,6 @@ public class Pair<F, S> {
         int result = 13;
         result = 31 * result + (first == null ? 0 : first.hashCode());
         result = 31 * result + (second == null ? 0 : second.hashCode());
-
         return result;
     }
 }
