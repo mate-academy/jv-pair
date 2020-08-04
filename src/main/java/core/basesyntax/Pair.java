@@ -14,11 +14,11 @@ class Pair<T, K> {
         return new Pair<>(first, second);
     }
 
-    T getFirst() {
+    public T getFirst() {
         return firstValue;
     }
 
-    K getSecond() {
+    public K getSecond() {
         return secondValue;
     }
 
@@ -34,7 +34,7 @@ class Pair<T, K> {
         }
 
         if (object.getClass().equals(Pair.class)) {
-            Pair<T, K> pair = (Pair) object;
+            Pair<T, K> pair = (Pair<T, K>) object;
             return firstValue != null ? firstValue.equals(pair.firstValue)
                     : pair.firstValue == null
                     && secondValue != null ? secondValue.equals(pair.secondValue)
@@ -47,9 +47,9 @@ class Pair<T, K> {
     @Override
     public int hashCode() {
         int hashCode = 71;
-        hashCode = 93 * hashCode
+        hashCode = 97 * hashCode
                 + (firstValue != null ? firstValue.hashCode() : 0);
-        hashCode = 93 * hashCode
+        hashCode = 97 * hashCode
                 + (secondValue != null ? secondValue.hashCode() : 0);
         return hashCode;
     }
