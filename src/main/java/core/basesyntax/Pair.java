@@ -30,9 +30,12 @@ class Pair<C, T> {
         if (obj == null) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) obj;
-        return (first != null && first.equals(pair.first)) || (first == pair.first)
-                && (second != null && second.equals(pair.second)) || (second == pair.second);
+        if (obj.getClass().equals(Pair.class)) {
+            Pair<?, ?> pair = (Pair<?, ?>) obj;
+            return (first != null && first.equals(pair.first)) || (first == pair.first)
+                    && (second != null && second.equals(pair.second)) || (second == pair.second);
+        }
+        return false;
     }
 
     @Override
