@@ -1,8 +1,6 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
-class Pair<T1, T2> {
+public class Pair<T1, T2> {
     private T1 first;
     private T2 second;
 
@@ -11,7 +9,7 @@ class Pair<T1, T2> {
         this.second = second;
     }
 
-    static <T1, T2> Pair of(T1 first, T2 second) {
+    public static <T1, T2> Pair of(T1 first, T2 second) {
 
         return new Pair(first, second);
     }
@@ -33,7 +31,10 @@ class Pair<T1, T2> {
             return false;
         }
         Pair<T1, T2> pair = (Pair<T1, T2>) object;
-        return Objects.equals(first, pair.first) && Objects.equals(second, pair.second);
+        return (first == null && pair.first == null)
+                || (first != null && first.equals(pair.first))
+                && (second == null && pair.second == null)
+                || (second != null && second.equals(pair.second));
     }
 
     @Override
