@@ -33,8 +33,8 @@ class Pair<I, S> {
             return false;
         }
         Pair<I,S> pair = (Pair) object;
-        return first == null ? null == pair.first
-                : first.equals(pair.first) && second == null ? null == pair.second : second.equals(pair.second);
+        return first == null ? null == pair.first : first.equals(pair.first)
+                && second == null ? null == pair.second : second.equals(pair.second);
     }
 
     @Override
