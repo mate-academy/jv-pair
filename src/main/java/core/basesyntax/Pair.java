@@ -31,11 +31,11 @@ class Pair<C, T> {
             return false;
         }
         if (!obj.getClass().equals(Pair.class)) {
-        return false;
+            return false;
         }
-            Pair<?, ?> pair = (Pair<?, ?>) obj;
-            return (first != null && first.equals(pair.first) || first == pair.first)
-                    && (second != null && second.equals(pair.second) || (second == pair.second));
+        Pair<C, T> pair = (Pair<C, T>) obj;
+        return (first != null && first.equals(pair.first) || first == pair.first)
+                && (second != null && second.equals(pair.second) || (second == pair.second));
     }
 
     @Override
