@@ -6,6 +6,10 @@
 
 С корректно реализованным классом Pair должен компилироваться и успешно работать следующий код:
 
+Please remember all rules to override Equals.
+Don’t forget access modifiers.
+Don’t use class Objects.
+
 ```java
 Pair<Integer, String> pair = Pair.of(1, "hello");
 Integer i = pair.getFirst(); // 1
