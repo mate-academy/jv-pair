@@ -34,16 +34,14 @@ class Pair {
         }
         if (getClass() == Pair.class) {
             Pair pair = (Pair) object;
-            if ((first != null && pair.getFirst() == null)
-                    || (first == null && pair.getFirst() != null)
-                    || (second != null && pair.getSecond() == null)
-                    || (second == null && pair.getSecond() != null)) {
-                return false;
-            }
-            return (((first == null && pair.getFirst() == null)
-                    || first.equals(pair.getFirst()))
-                    && ((second == null && pair.getSecond() == null)
-                    || second.equals(pair.getSecond())));
+            return !((first != null && pair.first == null)
+                    || (first == null && pair.first != null)
+                    || (second != null && pair.second == null)
+                    || (second == null && pair.second != null))
+                    && (((first == null && pair.first == null)
+                    || first.equals(pair.first))
+                    && ((second == null && pair.second == null)
+                    || second.equals(pair.second)));
         }
         return false;
     }
@@ -52,10 +50,10 @@ class Pair {
     public int hashCode() {
         int result = 31;
         if (first != null) {
-            result = result * getFirst().hashCode();
+            result = 31 * result * getFirst().hashCode();
         }
         if (second != null) {
-            result = result * getSecond().hashCode();
+            result = 31 * result * getSecond().hashCode();
         }
         return result;
     }
