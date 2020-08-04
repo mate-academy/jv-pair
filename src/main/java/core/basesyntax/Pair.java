@@ -17,7 +17,7 @@ class Pair<F,S> {
         return second;
     }
 
-    public static <F, S> Pair of(F first, S second) {
+    public static <F, S> Pair<F, S> of(F first, S second) {
         return new Pair(first, second);
     }
 
@@ -30,7 +30,7 @@ class Pair<F,S> {
             if (this == object) {
                 return true;
             }
-            Pair pair = (Pair) object;
+            Pair<F, S> pair = (Pair<F, S>) object;
             return (first == pair.first
                     || (first != null && first.equals(pair.first)))
                     && (second == pair.second
