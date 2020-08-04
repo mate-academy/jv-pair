@@ -4,12 +4,12 @@ package core.basesyntax;
 а также статический фабричный метод of(). Конструктор должен быть закрытым (private).
 */
 
-class Pair<T, TT> {
-    private Pair<T, TT> isNull;
-    private final T firstElement;
-    private final TT secondElement;
+class Pair<T, K> {
+    private Pair<T, K> isNull;
+    private T firstElement;
+    private K secondElement;
 
-    private Pair(T firstElement, TT secondElement) {
+    private Pair(T firstElement, K secondElement) {
         this.isNull = null;
         this.firstElement = firstElement;
         this.secondElement = secondElement;
@@ -23,7 +23,7 @@ class Pair<T, TT> {
         return firstElement;
     }
 
-    public TT getSecond() {
+    public K getSecond() {
         return secondElement;
     }
 
@@ -36,7 +36,7 @@ class Pair<T, TT> {
             return false;
         }
         if (obj.getClass().equals(Pair.class)) {
-            Pair<T, TT> pair = (Pair<T, TT>) obj;
+            Pair<T, K> pair = (Pair<T, K>) obj;
             return firstElement == null
                     ? firstElement == pair.firstElement
                     : firstElement.equals(pair.firstElement)
