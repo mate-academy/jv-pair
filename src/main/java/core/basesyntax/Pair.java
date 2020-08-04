@@ -1,12 +1,12 @@
 package core.basesyntax;
 
-class Pair<T> {
-    private Object firstItem;
-    private Object secondItem;
+class Pair<T, K> {
+    private T firstItem;
+    private K secondItem;
 
     private Pair(Object firstItem, Object secondItem) {
-        this.firstItem = firstItem;
-        this.secondItem = secondItem;
+        this.firstItem = (T) firstItem;
+        this.secondItem = (K) secondItem;
     }
 
     public Object getFirst() {
@@ -17,8 +17,8 @@ class Pair<T> {
         return secondItem;
     }
 
-    public static <T> Pair<T> of(Object firstItem, Object secondItem) {
-        return new Pair<T>(firstItem, secondItem);
+    public static <T, K> Pair<T, K> of(Object firstItem, Object secondItem) {
+        return new Pair<T, K>(firstItem, secondItem);
     }
 
     @Override
