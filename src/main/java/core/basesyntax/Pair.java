@@ -5,17 +5,15 @@ package core.basesyntax;
 */
 
 class Pair<T, K> {
-    private Pair<T, K> isNull;
     private T firstElement;
     private K secondElement;
 
     private Pair(T firstElement, K secondElement) {
-        this.isNull = null;
         this.firstElement = firstElement;
         this.secondElement = secondElement;
     }
 
-    public static <T, TT> Pair<T, TT> of(T firstElement, TT secondElement) {
+    public static <T, K> Pair<T, K> of(T firstElement, K secondElement) {
         return new Pair<>(firstElement, secondElement);
     }
 
