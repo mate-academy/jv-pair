@@ -3,8 +3,8 @@ package core.basesyntax;
 import java.util.Objects;
 
 public class Pair<T, V> {
-    T number;
-    V name;
+   private T number;
+   private V name;
 
     private Pair(T age, V name) {
         this.number = age;
@@ -20,7 +20,7 @@ public class Pair<T, V> {
         return name;
     }
 
-    public static <T, V> Pair<T, V> of(T age, V name) {
+    public static <T, V> Pair of(T age, V name) {
         return new Pair<>(age, name);
     }
 
@@ -41,11 +41,11 @@ public class Pair<T, V> {
         if (obj == null) {
             return false;
         }
-        if (obj.getClass().equals(Pair.class)) {
+        if (obj instanceof Pair) {
             Pair<T, V> pair = (Pair<T, V>) obj;
             return (number == pair.number) || (number != null && number.equals(pair.number))
-                    && (name == pair.name) || (name != null
-                    && name.equals(pair.name));
+                    && (name == pair.name) || (name != null)
+                    && (name.equals(pair.name));
         }
         return false;
     }
