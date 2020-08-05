@@ -31,7 +31,7 @@ class Pair<T, V> {
             return false;
         }
 
-        Pair pair = (Pair) object;
+        Pair<T, V> pair = (Pair<T, V>) object;
         return ((val1 == pair.val1) || (val1 != null && val1.equals(pair.val1)))
                 && (val2 == pair.val2) || (val2 != null && val2.equals(pair.val2));
     }
