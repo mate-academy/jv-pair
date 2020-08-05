@@ -1,24 +1,24 @@
 package core.basesyntax;
 
 class Pair<T, V> {
-    private T val1;
-    private V val2;
+    private T firse;
+    private V second;
 
-    private Pair(T val1, V val2) {
-        this.val1 = val1;
-        this.val2 = val2;
+    private Pair(T firse, V second) {
+        this.firse = firse;
+        this.second = second;
     }
 
     public T getFirst() {
-        return val1;
+        return firse;
     }
 
     public V getSecond() {
-        return val2;
+        return second;
     }
 
-    public static <T, V> Pair<T, V> of(T val1, V val2) {
-        return new Pair<>(val1, val2);
+    public static <T, V> Pair<T, V> of(T firse, V second) {
+        return new Pair<>(firse, second);
     }
 
     @Override
@@ -32,8 +32,8 @@ class Pair<T, V> {
         }
 
         Pair<T, V> pair = (Pair<T, V>) object;
-        return ((val1 == pair.val1) || (val1 != null && val1.equals(pair.val1)))
-                && (val2 == pair.val2) || (val2 != null && val2.equals(pair.val2));
+        return ((firse == pair.firse || firse != null && firse.equals(pair.firse))
+                && (second == pair.second || second != null && second.equals(pair.second)));
     }
 
     @Override
@@ -41,8 +41,8 @@ class Pair<T, V> {
         final int prime = 31;
         int result = 1;
 
-        result = prime * result + (val1 == null ? 0 : val1.hashCode());
-        result = prime * result + (val2 == null ? 0 : val2.hashCode());
+        result = prime * result + (firse == null ? 0 : firse.hashCode());
+        result = prime * result + (second == null ? 0 : second.hashCode());
         return result;
     }
 }
