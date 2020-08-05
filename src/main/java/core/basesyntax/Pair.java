@@ -1,35 +1,37 @@
 package core.basesyntax;
 
-class Pair <T, K>{
-    private T t;
-    private K k;
-    private Pair(T t, K k){
-        this.t = t;
-        this.k = k;
+class Pair<T, K> {
+    private T temp;
+    private K key;
+
+    private Pair(T temp, K key) {
+        this.temp = temp;
+        this.key = key;
     }
 
-    public static <T, K> Pair of(T t, K k){
-          return  new Pair(t, k);
+    public static <T, K> Pair<T, K> of(T temp, K key) {
+        return new Pair<>(temp, key);
     }
 
-    public T getFirst(){
-        T object_1 = t;
-        return object_1;
+    public T getFirst() {
+        T objectFirst = temp;
+        return objectFirst;
     }
-    public K getSecond(){
-        K object_2 = k;
-        return object_2;
+
+    public K getSecond() {
+        K objectSecond = key;
+        return objectSecond;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        if (t!= null) {
-            result = prime * result + t.hashCode();
+        if (temp != null) {
+            result = prime * result + temp.hashCode();
         }
-        if (k!= null) {
-            result = prime * result + k.hashCode();
+        if (key != null) {
+            result = prime * result + key.hashCode();
         }
 
         return result;
@@ -40,15 +42,15 @@ class Pair <T, K>{
         if (this == obj) {
             return true;
         }
-        if(obj == null){
+        if (obj == null) {
             return false;
         }
-        if (obj.getClass().equals(Pair.class)){
+        if (obj.getClass().equals(Pair.class)) {
             Pair pair = (Pair) obj;
-            return t!= null ? t.equals(pair.t)
-                    : pair.t == null
-                    && k!= null ? k.equals(pair.k)
-                    : pair.k == null;
+            return temp != null ? temp.equals(pair.temp)
+                    : pair.temp == null
+                    && key != null ? key.equals(pair.key)
+                    : pair.key == null;
         }
         return false;
     }
