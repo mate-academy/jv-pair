@@ -9,7 +9,7 @@ class Pair<T, K> {
         this.key = key;
     }
 
-    public static <T, K> Pair<T, K> of(T temp, K key) {
+    public static <T, K> Pair of(T temp, K key) {
         return new Pair<>(temp, key);
     }
 
@@ -46,7 +46,7 @@ class Pair<T, K> {
             return false;
         }
         if (obj.getClass().equals(Pair.class)) {
-            Pair pair = (Pair) obj;
+            Pair pair = (Pair<T,K>) obj;
             return temp != null ? temp.equals(pair.temp)
                     : pair.temp == null
                     && key != null ? key.equals(pair.key)
