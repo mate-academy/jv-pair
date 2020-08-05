@@ -30,7 +30,7 @@ class Pair<K, V> {
             return false;
         }
 
-        Pair pair = (Pair) other;
+        Pair<K, V> pair = (Pair<K, V>) other;
         return (first == pair.first || (first != null && first.equals(pair.getFirst())))
                 && (second == pair.second || (second != null && second.equals(pair.getSecond())));
     }
