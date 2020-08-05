@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 public class Pair<T, K> {
-    static final int CONSTANT = 31;
+    private static final int CONSTANT = 31;
 
     private T first;
     private K second;
@@ -35,12 +35,12 @@ public class Pair<T, K> {
         }
 
         if (object.getClass().equals(Pair.class)) {
-            Pair pair = (Pair) object;
-            return (pair.getFirst() == this.first
-                    || (null != pair.getFirst() && pair.getFirst().equals(this.first)))
+            Pair pair = (Pair<T,K>) object;
+            return (pair.first == this.first
+                    || (null != pair.first && pair.first.equals(this.first)))
                     &&
-                    (pair.getSecond() == this.second
-                            || (null != pair.getSecond() && pair.getSecond().equals(this.second)));
+                    (pair.second == this.second
+                            || (null != pair.second && pair.second.equals(this.second)));
         }
         return false;
     }
