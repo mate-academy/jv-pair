@@ -17,7 +17,7 @@ public class Pair<F, S> {
         return second;
     }
 
-    public static <K, V> Pair<K, V> of(K first, V second) {
+    public static <K, V> Pair of(K first, V second) {
         return new Pair(first, second);
     }
 
@@ -32,7 +32,7 @@ public class Pair<F, S> {
         if (obj.getClass() != obj.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) obj;
+        Pair<F, S> pair = (Pair) obj;
         return first == null ? first == pair.first : first.equals(pair.first)
                 && second == null ? second == pair.second : second.equals(pair.second);
     }
