@@ -30,7 +30,7 @@ public class Pair<F, S> {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) object;
+        Pair<F, S> pair = (Pair<F, S>) object;
         return first == null ? pair.first == null : first.equals(pair.first)
                 && second == null ? pair.second == null : second.equals(pair.second);
     }
