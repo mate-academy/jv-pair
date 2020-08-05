@@ -9,7 +9,7 @@ class Pair<K, V> {
         this.second = second;
     }
 
-    public static <K, V> Pair<K, V> of(K first, V second) {
+    public static <K, V> Pair of(K first, V second) {
         return new Pair<>(first, second);
     }
 
