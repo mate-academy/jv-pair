@@ -1,8 +1,8 @@
 package core.basesyntax;
 
 class Pair<K, T> {
-    private final K first;
-    private final T second;
+    private K first;
+    private T second;
 
     private Pair(K first, T second) {
         this.first = first;
@@ -26,7 +26,7 @@ class Pair<K, T> {
             return false;
         }
 
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Pair<K, T> pair = (Pair<K, T>) o;
         return (first == pair.first
                 || (first != null && first.equals(pair.first)))
                 && (second == pair.second
