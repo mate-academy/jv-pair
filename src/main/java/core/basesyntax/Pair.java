@@ -38,7 +38,7 @@ class Pair<T, K> {
 
     @Override
     public int hashCode() {
-        int hash = 27;
+        int hash = 29;
         hash = firstObject == null ? 31 * hash : hash * firstObject.hashCode();
         hash = secondObject == null ? 31 * hash : hash * secondObject.hashCode();
         return hash;
