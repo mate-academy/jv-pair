@@ -31,10 +31,10 @@ public class Pair<T1, T2> {
             return false;
         }
         Pair<T1, T2> pair = (Pair<T1, T2>) object;
-        return (first == null && pair.first == null)
-                || (first != null && first.equals(pair.first))
-                && (second == null && pair.second == null)
-                || (second != null && second.equals(pair.second));
+        return (first == null && pair.first == null
+                || first != null && first.equals(pair.first))
+                && (second == null && pair.second == null
+                || second != null && second.equals(pair.second));
     }
 
     @Override
