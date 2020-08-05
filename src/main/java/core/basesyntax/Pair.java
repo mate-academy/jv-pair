@@ -25,8 +25,8 @@ class Pair<I, S> {
         this.second = second;
     }
 
-    public static <I, S> Pair of(I data, S data2) {
-        return new Pair<I, S>(data, data2);
+    public static <I, S> Pair<I,S> of(I first, S second) {
+        return new Pair<I, S>(first, second);
     }
 
     @Override
@@ -37,18 +37,14 @@ class Pair<I, S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-
-        if (first != null ? !first.equals(pair.first) : pair.first != null) {
-            return false;
-        }
-        return second != null ? second.equals(pair.second) : pair.second == null;
+        Pair<I, S> pair = (Pair<I, S>) o;
+        return second != null ? second.equals(pair.second) : pair.second == null
+                && first != null ? first.equals(pair.first) : pair.first == null;
     }
 
     @Override
     public int hashCode() {
-        int result = first != null ? first.hashCode() : 0;
+        int result = first != null ? first.hashCode() : 37;
         result = 31 * result + (second != null ? second.hashCode() : 0);
         return result;
     }
