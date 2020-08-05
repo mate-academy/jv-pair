@@ -19,7 +19,7 @@ class Pair<T, W> {
         return second;
     }
 
-    public static <T, W> Pair <T,W> of(T first, W second) {
+    public static <T, W> Pair of(T first, W second) {
         return new Pair<>(first, second);
     }
 
@@ -33,7 +33,7 @@ class Pair<T, W> {
         }
 
         if (obj.getClass().equals(getClass())) {
-            Pair pair = (Pair) obj;
+            Pair<T, W> pair = (Pair<T, W>) obj;
 
             return first != null
                     ? first.equals(pair.getFirst()) : first == pair.getFirst()
