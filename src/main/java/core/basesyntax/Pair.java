@@ -11,7 +11,7 @@ public class Pair<T1, T2> {
 
     public static <T1, T2> Pair of(T1 first, T2 second) {
 
-        return new Pair(first, second);
+        return new Pair<>(first, second);
     }
 
     public T1 getFirst() {
