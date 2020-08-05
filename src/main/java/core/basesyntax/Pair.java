@@ -30,8 +30,8 @@ class Pair<K, V> {
             return false;
         }
         Pair<K, V> pair = (Pair<K, V>) o;
-        return (((key != null && key.equals(pair.key)) || key == pair.key)
-                && (value != null && value.equals(pair.value)) || value == pair.value);
+        return (key != null && key.equals(pair.key) || key == pair.key)
+                && (value != null && value.equals(pair.value) || value == pair.value);
     }
 
     @Override
