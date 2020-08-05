@@ -9,7 +9,7 @@ class Pair<K, V> {
         this.value = value;
     }
 
-    public static <K, V> Pair of(K key, V value) {
+    public static <K, V> Pair<K, V> of(K key, V value) {
         return new Pair(key, value);
     }
 
@@ -30,8 +30,8 @@ class Pair<K, V> {
             return false;
         }
         Pair<K, V> pair = (Pair<K, V>) o;
-        return (((key != null && key.equals(pair.getFirst())) || key == pair.getFirst())
-                && (value != null && value.equals(pair.getSecond())) || value == pair.getSecond());
+        return (((key != null && key.equals(pair.key)) || key == pair.key)
+                && (value != null && value.equals(pair.value)) || value == pair.value);
     }
 
     @Override
