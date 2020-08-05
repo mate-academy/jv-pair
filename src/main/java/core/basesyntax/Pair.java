@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import static javafx.scene.input.KeyCode.V;
-
 class Pair<T, W> {
     private T first;
     private W second;
