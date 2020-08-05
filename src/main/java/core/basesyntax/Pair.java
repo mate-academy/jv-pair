@@ -1,19 +1,24 @@
 package core.basesyntax;
 
-class Pair<T> {
+class Pair<T, V> {
     private T first;
-    private T second;
+    private V second;
+
+    public Pair(T first, V second) {
+        this.first = first;
+        this.second = second;
+    }
 
     public T getFirst() {
         return first;
     }
 
-    public T getSecond() {
+    public V getSecond() {
         return second;
     }
 
-    public static Pair of(Object first, Object second) {
-        Pair pair = new Pair();
+    public static <T, V> Pair<T, V> of(T first, V second) {
+        Pair<T, V> pair = new Pair<T, V>(first, second);
         pair.first = first;
         pair.second = second;
         return pair;
@@ -28,7 +33,7 @@ class Pair<T> {
             return false;
         }
         if (getClass() == Pair.class) {
-            Pair pair = (Pair) object;
+            Pair<T, V> pair = (Pair<T, V>) object;
             return (((first == null) && (pair.first == null))
                     || (first != null && first.equals(pair.first)))
                     && (((second == null) && (pair.second == null))
