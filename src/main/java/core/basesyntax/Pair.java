@@ -17,7 +17,7 @@ class Pair<T, K> {
         return secondItem;
     }
 
-    public static <T, K> Pair<T, K> of(Object firstItem, Object secondItem) {
+    public static <T, K> Pair of(Object firstItem, Object secondItem) {
         return new Pair<T, K>(firstItem, secondItem);
     }
 
@@ -30,7 +30,7 @@ class Pair<T, K> {
             return false;
         }
         if (object.getClass().equals(Pair.class)) {
-            Pair pair = (Pair) object;
+            Pair pair = (Pair<T, K>) object;
             return firstItem == pair.firstItem
                     || firstItem != null && firstItem.equals(pair.firstItem)
                      && secondItem == pair.secondItem
