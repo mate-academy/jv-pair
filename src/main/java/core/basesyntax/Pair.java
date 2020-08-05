@@ -41,7 +41,7 @@ class Pair<T, K> {
         }
 
         if (obj.getClass().equals(Pair.class)) {
-            Pair pair = (Pair) obj;
+            Pair<T, K> pair = (Pair) obj;
             return first == pair.first || (first != null && first.equals(pair.first))
                     && second == pair.second || (second != null && second.equals(pair.second));
         }
