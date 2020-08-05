@@ -1,5 +1,7 @@
 package core.basesyntax;
 
+import static javafx.scene.input.KeyCode.V;
+
 class Pair<T, W> {
     private T first;
     private W second;
@@ -26,15 +28,19 @@ class Pair<T, W> {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !obj.getClass().equals(Pair.class)) {
+        if (obj == null) {
             return false;
         }
-        Pair pair = (Pair) obj;
 
-        return first != null
-                ? first.equals(pair.getFirst()) : first == pair.getFirst()
-                && (second != null && pair.second != null)
-                ? second.equals(pair.second) : second == pair.second;
+        if (obj.getClass().equals(getClass())) {
+            Pair pair = (Pair) obj;
+
+            return first != null
+                    ? first.equals(pair.getFirst()) : first == pair.getFirst()
+                    && (second != null && pair.second != null)
+                    ? second.equals(pair.second) : second == pair.second;
+        }
+        return false;
     }
 
     @Override
