@@ -31,7 +31,8 @@ public class Pair<T, S> {
         }
         Pair<T, S> pair = (Pair<T, S>) o;
         return firstItem != null ? firstItem.equals(pair.getFirst()) : firstItem == pair.getFirst()
-                && firstItem != null ? secondItem.equals(pair.getSecond()) : secondItem == pair.getSecond();
+                && firstItem != null ? secondItem.equals(pair.getSecond())
+                : secondItem == pair.getSecond();
     }
 
     @Override
