@@ -32,8 +32,8 @@ class Pair<T, V> {
         }
 
         Pair<T, V> pair = (Pair<T, V>) object;
-        return ((first == pair.first) || first != null && first.equals(pair.first)
-                && (second == pair.second) || (second != null && second.equals(pair.second)));
+        return ((first == pair.first || (first != null && first.equals(pair.first)))
+                && (second == pair.second || (second != null && second.equals(pair.second))));
     }
 
     @Override
