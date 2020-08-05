@@ -25,7 +25,7 @@ class Pair<E,T> {
         if (element == null || getClass() != element.getClass()) {
             return false;
         }
-        Pair<?, ?> pair = (Pair<?, ?>) element;
+        Pair pair = (Pair<E, T>) element;
         return (first != null ? first.equals(pair.first) : pair.first == null)
                 && (second != null ? second.equals(pair.second) : pair.second == null);
     }
