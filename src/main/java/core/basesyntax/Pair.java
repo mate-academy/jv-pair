@@ -23,11 +23,14 @@ class Pair<T, K> {
 
     @Override
     public int hashCode() {
-        int hash = 17;
-        hash = getFirst() != null ? 31 * hash + first.hashCode() : hash;
-        hash = getSecond() != null ? 31 * hash + second.hashCode() : hash;
-
-        return hash;
+        int result = 31;
+        if (first != null) {
+            result = 31 * result * getFirst().hashCode();
+        }
+        if (second != null) {
+            result = 31 * result * getSecond().hashCode();
+        }
+        return result;
     }
 
     @Override
