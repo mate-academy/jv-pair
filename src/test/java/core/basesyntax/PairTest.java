@@ -143,4 +143,26 @@ public class PairTest {
         Assert.assertEquals("Five", firstPair.getSecond());
         Assert.assertEquals("Two", secondPair.getSecond());
     }
+
+    @Test
+    public void pairsAreNotEqualBySecondParameter() {
+       Pair firstPair = Pair.of("5", 20);
+       Pair secondPair = Pair.of("5", 30);
+
+        Assert.assertNotEquals("Test failed with first hash "
+                + firstPair.hashCode()
+                + " and second hash " + secondPair.hashCode()
+                + " and equals " + firstPair.equals(secondPair), firstPair, secondPair);
+    }
+
+    @Test
+    public void pairsAreNotEqualByFirstParameter() {
+        Pair firstPair = Pair.of("5", 20);
+        Pair secondPair = Pair.of("10", 20);
+
+        Assert.assertNotEquals("Test failed with first hash "
+                + firstPair.hashCode()
+                + " and second hash " + secondPair.hashCode()
+                + " and equals " + firstPair.equals(secondPair), firstPair, secondPair);
+    }
 }

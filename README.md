@@ -1,10 +1,10 @@
 # jv-pair
 
-Реализуйте generic-класс **Pair**, содержащий пару элементов разных типов и не запрещающий элементам принимать значение null.
+Implement a generic-class Pair that contains a pair of elements of different types and does not prevent elements from being null.
 
-Реализуйте методы **getFirst()**, **getSecond()**, **equals()** и **hashCode()**, а также статический фабричный метод **of()**. Конструктор должен быть закрытым (private).
+Implement the `getFirst()`, `getSecond()`, `equals()`, and `hashCode()` methods, as well as the static factory method `of()`. The constructor must be private.
 
-С корректно реализованным классом Pair должен компилироваться и успешно работать следующий код:
+With a correctly implemented class Pair, the following code should compile and work successfully:
 
 ```java
 Pair<Integer, String> pair = Pair.of(1, "hello");
