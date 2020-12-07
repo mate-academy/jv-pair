@@ -2,16 +2,16 @@ package core.basesyntax;
 
 class Pair<T, V> {
 
-    private final T fist;
+    private final T first;
     private final V second;
 
-    private Pair(T fist, V second) {
-        this.fist = fist;
+    private Pair(T first, V second) {
+        this.first = first;
         this.second = second;
     }
 
     public T getFirst() {
-        return fist;
+        return first;
     }
 
     public V getSecond() {
@@ -24,7 +24,7 @@ class Pair<T, V> {
 
     @Override
     public int hashCode() {
-        return 71 * 31 + (fist == null ? 0 : fist.hashCode())
+        return 71 * 31 + (first == null ? 0 : first.hashCode())
                 * 71 * 31 + (second == null ? 0 : second.hashCode());
     }
 
@@ -33,22 +33,14 @@ class Pair<T, V> {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || !this.getClass().equals(obj.getClass())) {
             return false;
         }
         Pair<T, V> object = (Pair<T, V>) obj;
-        if (this.fist == null ^ object.fist == null
-                || this.second == null ^ object.second == null) {
-            return false;
-        }
-        if (this.getClass().equals(object.getClass())) {
-            return (this.fist == null && this.second == null)
-                    || (this.fist != null && this.second != null)
-                    && ((this.fist.equals(object.fist)
-                    && this.second.equals(object.second))
-                    && this.fist.hashCode() == object.fist.hashCode()
-                    && this.second.hashCode() == object.second.hashCode());
-        }
-        return false;
+        boolean firstEquals = (this.first == null && object.first == null)
+                || this.first != null && this.first.equals(object.first);
+        boolean secondEquals = (this.second == null && object.second == null)
+                || this.second != null && this.second.equals(object.second);
+        return firstEquals && secondEquals;
     }
 }
