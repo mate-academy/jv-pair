@@ -1,31 +1,31 @@
 package core.basesyntax;
 
-class Pair<T, T2> {
+class Pair<T, V> {
 
-    private final T fistThing;
-    private final T2 secondThing;
+    private final T fist;
+    private final V second;
 
-    private Pair(T fistThing, T2 secondThing) {
-        this.fistThing = fistThing;
-        this.secondThing = secondThing;
+    private Pair(T fist, V second) {
+        this.fist = fist;
+        this.second = second;
     }
 
     public T getFirst() {
-        return fistThing;
+        return fist;
     }
 
-    public T2 getSecond() {
-        return secondThing;
+    public V getSecond() {
+        return second;
     }
 
-    public static <T, T2> Pair<T, T2> of(T t, T2 t2) {
-        return new Pair<>(t, t2);
+    public static <T, V> Pair<T, V> of(T t, V v) {
+        return new Pair<>(t, v);
     }
 
     @Override
     public int hashCode() {
-        return 71 * 31 + (fistThing == null ? 0 : fistThing.hashCode())
-                * 71 * 31 + (secondThing == null ? 0 : secondThing.hashCode());
+        return 71 * 31 + (fist == null ? 0 : fist.hashCode())
+                * 71 * 31 + (second == null ? 0 : second.hashCode());
     }
 
     @Override
@@ -36,18 +36,18 @@ class Pair<T, T2> {
         if (obj == null) {
             return false;
         }
-        Pair<T, T2> object = (Pair<T, T2>) obj;
-        if (this.fistThing == null ^ object.fistThing == null
-                || this.secondThing == null ^ object.secondThing == null) {
+        Pair<T, V> object = (Pair<T, V>) obj;
+        if (this.fist == null ^ object.fist == null
+                || this.second == null ^ object.second == null) {
             return false;
         }
         if (this.getClass().equals(object.getClass())) {
-            return (this.fistThing == null && this.secondThing == null)
-                    || (this.fistThing != null && this.secondThing != null)
-                    && ((this.fistThing.equals(object.fistThing)
-                    && this.secondThing.equals(object.secondThing))
-                    && this.fistThing.hashCode() == object.fistThing.hashCode()
-                    && this.secondThing.hashCode() == object.secondThing.hashCode());
+            return (this.fist == null && this.second == null)
+                    || (this.fist != null && this.second != null)
+                    && ((this.fist.equals(object.fist)
+                    && this.second.equals(object.second))
+                    && this.fist.hashCode() == object.fist.hashCode()
+                    && this.second.hashCode() == object.second.hashCode());
         }
         return false;
     }
