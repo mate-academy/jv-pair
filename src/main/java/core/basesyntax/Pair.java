@@ -33,10 +33,10 @@ class Pair<T, V> {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !this.getClass().equals(obj.getClass())) {
+        Pair<T, V> object = (Pair<T, V>) obj;
+        if (obj == null || !this.getClass().equals(object.getClass())) {
             return false;
         }
-        Pair<T, V> object = (Pair<T, V>) obj;
         boolean firstEquals = (this.first == null && object.first == null)
                 || this.first != null && this.first.equals(object.first);
         boolean secondEquals = (this.second == null && object.second == null)
