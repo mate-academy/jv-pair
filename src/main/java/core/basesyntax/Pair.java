@@ -48,16 +48,10 @@ class Pair<F, S> {
     }
 
     public void setFirst(F first) {
-        if (first == null) {
-            throw new RuntimeException("Parameter is null");
-        }
         this.first = first;
     }
 
     public void setSecond(S second) {
-        if (second == null) {
-            throw new RuntimeException("Parameter is null");
-        }
         this.second = second;
     }
 }
