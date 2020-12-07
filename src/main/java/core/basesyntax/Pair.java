@@ -30,16 +30,28 @@ class Pair <F, S>{
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object pair) {
+        if (pair == this) {
+            return true;
+        }
+        if (pair == null) {
+            return false;
+        }
+        if (pair.getClass().equals(Pair.class)) {
 
-        return super.equals(obj);
+            Pair<?, ?> anotherPair = (Pair<?, ?>) pair;
+            return anotherPair.getFirst().equals(this.first)
+                    || anotherPair.getFirst() == null && this.first == null
+                    && anotherPair.getSecond().equals(this.second)
+                    || anotherPair.getSecond() == null && this.second == null;
+        }
+        return false;
     }
 
     @Override
     public String toString() {
-        return "Pair{" +
-                "first=" + first +
-                ", second=" + second +
-                '}';
+        return "Pair{"
+                + "first=" + first
+                + ", second=" + second + '}';
     }
 }
