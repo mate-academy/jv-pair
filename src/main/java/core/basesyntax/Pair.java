@@ -1,12 +1,16 @@
 package core.basesyntax;
 
-class Pair <F, S>{
+class Pair<F, S> {
     private F first;
     private S second;
 
-    private Pair(F first, S second){
+    private Pair(F first, S second) {
         this.first = first;
         this.second = second;
+    }
+
+    public static <F, S> Pair of(F first, S second) {
+        return new Pair(first, second);
     }
 
     public F getFirst() {
@@ -15,10 +19,6 @@ class Pair <F, S>{
 
     public S getSecond() {
         return second;
-    }
-
-    public static <F, S> Pair of(F first, S second){
-        return new Pair(first, second);
     }
 
     @Override
@@ -38,12 +38,11 @@ class Pair <F, S>{
             return false;
         }
         if (pair.getClass().equals(Pair.class)) {
-
-            Pair<?, ?> anotherPair = (Pair<?, ?>) pair;
-            return anotherPair.getFirst().equals(this.first)
-                    || anotherPair.getFirst() == null && this.first == null
-                    && anotherPair.getSecond().equals(this.second)
-                    || anotherPair.getSecond() == null && this.second == null;
+            Pair<F, S> anotherPair = (Pair<F, S>) pair;
+            return anotherPair.first != null && anotherPair.first.equals(this.first)
+                    && anotherPair.second != null && anotherPair.second.equals(this.second)
+                    || anotherPair.first == null && this.first == null
+                    || anotherPair.second == null && this.second == null;
         }
         return false;
     }
