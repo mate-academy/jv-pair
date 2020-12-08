@@ -31,10 +31,10 @@ public class Pair<T, E> {
         }
         if (getClass().equals(object.getClass())) {
             Pair<?, ?> pair = (Pair<?, ?>) object;
-            return ((this.first == pair.first
-                || this.first != null && this.first.equals(pair.first)))
-                && ((this.second == pair.second
-                || this.second != null && this.second.equals(pair.second)));
+            return ((first == pair.first
+                || first != null && first.equals(pair.first)))
+                && ((second == pair.second
+                || second != null && second.equals(pair.second)));
         }
         return false;
     }
