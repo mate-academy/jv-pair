@@ -1,15 +1,15 @@
 package core.basesyntax;
 
-public class Pair<F> {
+public class Pair<F, S> {
     private F first;
-    private F second;
+    private S second;
 
-    private Pair(F first, F second) {
+    private Pair(F first, S second) {
         this.first = first;
         this.second = second;
     }
 
-    public static <F> Pair of(F first, F second) {
+    public static <F, S> Pair<F, S> of(F first, S second) {
         Pair pair = new Pair(first, second);
         return pair;
     }
@@ -18,7 +18,7 @@ public class Pair<F> {
         return first;
     }
 
-    public F getSecond() {
+    public S getSecond() {
         return second;
     }
 
@@ -32,34 +32,20 @@ public class Pair<F> {
 
     @Override
     public boolean equals(Object pair) {
-        Pair currentPair = (Pair) pair;
         if (pair == null) {
             return false;
-        }
-
-        if (((Pair<?>) pair).first == null
-                && this.first == null
-                && ((Pair<?>) pair).second == null
-                && this.second == null) {
-            return true;
         }
 
         if (pair == this) {
             return true;
         }
 
-        if ((((Pair<?>) pair).first == null
-                || ((Pair<?>) pair).second == null)
-                && this.first == null || this.second == null) {
-            return false;
-        }
-
-        if (pair.getClass().equals(Pair.class)) {
-
-            return (first.equals(currentPair.first)
+        if (pair.getClass().equals(getClass())) {
+            Pair<F, S> currentPair = (Pair<F, S>) pair;
+            return ((first == currentPair.first
                     || (first != null && first.equals(currentPair.first)))
-                    && (second.equals((currentPair.second))
-                    || (second != null && second.equals(currentPair.second)));
+                    && (second == currentPair.second
+                    || (second != null && second.equals(currentPair.second))));
         }
         return false;
     }
