@@ -9,8 +9,8 @@ class Pair<F, S> {
         this.second = second;
     }
 
-    public static <F, S> Pair<F, S> of(Object F, Object S) {
-        return new Pair(F, S);
+    public static <F, S> Pair<F, S> of(Object f, Object s) {
+        return new Pair(f, s);
     }
 
     public F getFirst() {
