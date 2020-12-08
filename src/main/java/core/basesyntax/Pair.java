@@ -14,11 +14,11 @@ class Pair<K, V> {
     }
 
     public K getFirst() {
-        return this.first;
+        return first;
     }
 
     public V getSecond() {
-        return this.second;
+        return second;
     }
 
     @Override
