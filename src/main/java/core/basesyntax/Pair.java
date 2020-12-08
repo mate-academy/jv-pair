@@ -39,10 +39,10 @@ class Pair<F, S> {
         }
         if (pair.getClass().equals(Pair.class)) {
             Pair<F, S> anotherPair = (Pair<F, S>) pair;
-            return anotherPair.first != null && anotherPair.first.equals(this.first)
-                    && anotherPair.second != null && anotherPair.second.equals(this.second)
-                    || anotherPair.first == null && this.first == null
-                    || anotherPair.second == null && this.second == null;
+            return anotherPair.first != null && anotherPair.first.equals(first)
+                    && anotherPair.second != null && anotherPair.second.equals(second)
+                    || anotherPair.first == null && first == null
+                    || anotherPair.second == null && second == null;
         }
         return false;
     }
