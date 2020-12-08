@@ -1,8 +1,8 @@
 package core.basesyntax;
 
 class Pair<A, B> {
-    A first;
-    B second;
+    private A first;
+    private B second;
 
     private Pair(A first, B second) {
         this.first = first;
@@ -45,14 +45,9 @@ class Pair<A, B> {
         }
         if (object.getClass().equals(Pair.class)) {
             Pair pair = (Pair) object;
-            if ((pair.first == null && pair.second == null)
-                    && (this.first != null || this.second != null)) {
-                return false;
-            }
-            return ((pair.first == null && this.first == null)
-                    || pair.first.equals(this.first))
-                    && ((pair.second == null && this.second == null)
-                    || pair.second.equals(this.second));
+
+            return ((first == pair.first) || (first != null && first.equals(pair.first)))
+                    && ((second == pair.second) || (second != null && second.equals(pair.second)));
         }
         return false;
     }
