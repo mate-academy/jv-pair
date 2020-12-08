@@ -9,11 +9,11 @@ class Pair<A, B> {
         this.second = second;
     }
 
-    public static Pair of(Object a, Object b) {
+    public static <A, B> Pair of(A a, B b) {
         return new Pair(a, b);
     }
 
-    public Object getFirst() {
+    public A getFirst() {
         return first;
     }
 
@@ -21,7 +21,7 @@ class Pair<A, B> {
         this.first = first;
     }
 
-    public Object getSecond() {
+    public B getSecond() {
         return second;
     }
 
