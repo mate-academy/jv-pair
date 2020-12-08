@@ -23,9 +23,9 @@ class Pair<F, S> {
 
     @Override
     public int hashCode() {
-        int result = 0;
-        result += getFirst() == null ? 0 : 31 * getFirst().hashCode();
-        result *= getSecond() == null ? 1 : 31 * getSecond().hashCode();
+        int result = 17;
+        result *= first == null ? 1 : 31 * first.hashCode();
+        result *= second == null ? 1 : 31 * second.hashCode();
         return result;
     }
 
