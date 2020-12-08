@@ -27,8 +27,8 @@ public class Pair<T,S> {
     public boolean equals(Object pair) {
         if (pair != null && this.getClass() == pair.getClass()) {
             Pair<T,S> current = (Pair<T,S>) pair;
-            return Objects.equals(this.getFirst(), current.getFirst())
-                    && Objects.equals(this.getSecond(), current.getSecond());
+            return Objects.equals(getFirst(), current.getFirst())
+                    && Objects.equals(getSecond(), current.getSecond());
         }
         return false;
     }
