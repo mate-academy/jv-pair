@@ -1,10 +1,8 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 public class Pair<T,S> {
-    T firstElement;
-    S secondElement;
+    private T firstElement;
+    private S secondElement;
 
     private Pair(T firstElement, S secondElement) {
         this.firstElement = firstElement;
@@ -25,10 +23,18 @@ public class Pair<T,S> {
 
     @Override
     public boolean equals(Object pair) {
-        if (pair != null && this.getClass() == pair.getClass()) {
+        if (this == pair) {
+            return true;
+        }
+        if (pair == null) {
+            return false;
+        }
+        if (getClass() == pair.getClass()) {
             Pair<T,S> current = (Pair<T,S>) pair;
-            return Objects.equals(getFirst(), current.getFirst())
-                    && Objects.equals(getSecond(), current.getSecond());
+            return ((firstElement == current.firstElement
+                    || firstElement != null && firstElement.equals(current.firstElement)))
+                    && ((secondElement == current.secondElement
+                    || secondElement != null && secondElement.equals(current.secondElement)));
         }
         return false;
     }
