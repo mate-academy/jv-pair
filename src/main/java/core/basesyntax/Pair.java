@@ -38,6 +38,7 @@ class Pair<K, V> {
         }
         return false;
     }
+
     @Override
     public int hashCode() {
         int result = 19;
