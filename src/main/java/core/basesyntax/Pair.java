@@ -30,11 +30,9 @@ class Pair<K, V> {
             return false;
         }
         Pair<K, V> pair = (Pair<K, V>) obj;
-        return (this.first == null && pair.first == null ? true :
-                this.first != null ? this.first.equals(pair.first) : false)
+        return (first == pair.first || first != null && first.equals(pair.first))
                 &&
-                (this.second == null && pair.second == null ? true :
-                        this.second != null ? this.second.equals(pair.second) : false);
+                (second == pair.second || second != null && second.equals(pair.second));
     }
 
     @Override
