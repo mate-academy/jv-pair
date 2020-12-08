@@ -22,15 +22,15 @@ class Pair<T, S> {
     }
 
     @Override
-    public boolean equals(Object pair1) {
-        if (pair1 == this) {
+    public boolean equals(Object value) {
+        if (value == this) {
             return true;
         }
-        if (pair1 == null) {
+        if (value == null) {
             return false;
         }
-        if (pair1.getClass().equals(Pair.class)) {
-            Pair<T, S> pair = (Pair<T, S>) pair1;
+        if (value.getClass().equals(Pair.class)) {
+            Pair<T, S> pair = (Pair<T, S>) value;
             return (first == null && pair.first == null
                    || first != null && first.equals(pair.getFirst()))
                    && (second == null && pair.second == null
