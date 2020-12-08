@@ -1,8 +1,13 @@
 package core.basesyntax;
 
-class Pair <K, V> {
+class Pair<K, V> {
     private K first;
     private V second;
+
+    private Pair(K first, V second) {
+        this.first = first;
+        this.second = second;
+    }
 
     public void setFirst(K first) {
         this.first = first;
@@ -18,11 +23,6 @@ class Pair <K, V> {
 
     public V getSecond() {
         return second;
-    }
-
-    private Pair(K first, V second) {
-        this.first = first;
-        this.second = second;
     }
 
     @Override
