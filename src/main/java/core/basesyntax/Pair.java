@@ -49,9 +49,9 @@ class Pair<I, S> {
             return false;
         }
         Pair castedPair = (Pair) pair;
-        return ((first == null && castedPair.first == null)
+        return (first == castedPair.first
                 || (first != null && first.equals(castedPair.first)))
-                && ((second == null && castedPair.second == null)
+                && (second == castedPair.second
                 || (second != null && second.equals(castedPair.second)));
     }
 }
