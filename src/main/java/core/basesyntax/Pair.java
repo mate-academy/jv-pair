@@ -38,7 +38,7 @@ class Pair<F, S> {
         if (pair == null || pair.getClass() != this.getClass()) {
             return false;
         }
-        Pair<?, ?> castedPair = (Pair<?, ?>) pair;
+        Pair<F, S> castedPair = (Pair<F, S>) pair;
         return ((first == castedPair.first)
             || (first != null && first.equals(castedPair.first)))
             && ((second == castedPair.second)
