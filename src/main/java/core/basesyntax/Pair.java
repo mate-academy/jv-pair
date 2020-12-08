@@ -30,7 +30,6 @@ public class Pair<T, E> {
             return false;
         }
         if (getClass().equals(object.getClass())) {
-
             Pair<?, ?> pair = (Pair<?, ?>) object;
             return ((this.first == pair.first
                 || this.first != null && this.first.equals(pair.first)))
