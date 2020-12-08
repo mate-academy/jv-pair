@@ -1,10 +1,10 @@
 package core.basesyntax;
 
 class Pair<A, B> {
-    Object first;
-    Object second;
+    A first;
+    B second;
 
-    private Pair(Object first, Object second) {
+    private Pair(A first, B second) {
         this.first = first;
         this.second = second;
     }
@@ -17,7 +17,7 @@ class Pair<A, B> {
         return first;
     }
 
-    public void setFirst(Object first) {
+    public void setFirst(A first) {
         this.first = first;
     }
 
@@ -25,7 +25,7 @@ class Pair<A, B> {
         return second;
     }
 
-    public void setSecond(Object second) {
+    public void setSecond(B second) {
         this.second = second;
     }
 
