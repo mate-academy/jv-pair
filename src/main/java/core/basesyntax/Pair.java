@@ -32,7 +32,7 @@ class Pair<F,S> {
         if (input.getClass().equals(this.getClass())) {
             Pair<F, S> current = (Pair<F, S>) input;
             return (first == current.first || first != null && first.equals(current.first))
-                    && (second == current.first || second != null && second.equals(current.second));
+                    && (second == current.second || second != null && second.equals(current.second));
         }
         return false;
     }
