@@ -30,9 +30,9 @@ class Pair<T, Z> {
             return false;
         }
         Pair newPair = (Pair) obj;
-        return ((first == null && newPair.first == null)
+        return ((first == newPair.first)
                     || (first != null && first.equals(newPair.first)))
-                && ((second == null && newPair.second == null)
+                && ((second == newPair.second)
                     || (second != null && second.equals(newPair.second)));
     }
 
