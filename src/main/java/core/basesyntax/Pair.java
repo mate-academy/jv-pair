@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 class Pair<K, V> {
     private K first;
     private V second;
@@ -32,12 +30,17 @@ class Pair<K, V> {
             return false;
         }
         Pair<?, ?> current = (Pair<?, ?>) pair;
-        return Objects.equals(first, current.first)
-                && Objects.equals(second, current.second);
+        return (first == current.first || first != null
+                && first.equals(current.first))
+                && (second == current.second || second != null
+                && second.equals(current.second));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(first, second);
+        int result = 17;
+        result = 31 * result + (first == null ? 0 : first.hashCode());
+        result = 31 * result + (second == null ? 0 : second.hashCode());
+        return result;
     }
 }
