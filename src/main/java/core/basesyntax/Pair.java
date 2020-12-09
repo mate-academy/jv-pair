@@ -26,7 +26,7 @@ class Pair<T, Z> {
         if (this == obj) {
             return true;
         }
-        if (obj == null || this.getClass() != obj.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         Pair newPair = (Pair) obj;
