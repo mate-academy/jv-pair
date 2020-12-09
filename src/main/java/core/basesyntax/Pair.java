@@ -14,11 +14,11 @@ class Pair<T, V> {
     }
 
     public T getFirst() {
-        return this.first;
+        return first;
     }
 
     public V getSecond() {
-        return this.second;
+        return second;
     }
 
     @Override
@@ -31,10 +31,10 @@ class Pair<T, V> {
         }
         if (obj.getClass().equals(this.getClass())) {
             Pair<T, V> current = (Pair<T, V>) obj;
-            return (this.first == null && current.first == null
-                    || this.first != null && this.first.equals(current.first))
-                    && (this.second == null && current.second == null
-                    || this.second != null && this.second.equals(current.second));
+            return (first == null && current.first == null
+                    || first != null && first.equals(current.first))
+                    && (second == null && current.second == null
+                    || second != null && second.equals(current.second));
         }
         return false;
     }
@@ -42,8 +42,8 @@ class Pair<T, V> {
     @Override
     public int hashCode() {
         int result = 13;
-        result = 11 * result + (this.first == null ? 0 : this.first.hashCode());
-        result = 13 * result + (this.second == null ? 0 : this.second.hashCode());
+        result = 11 * result + (first == null ? 0 : first.hashCode());
+        result = 13 * result + (second == null ? 0 : second.hashCode());
         return result;
     }
 }
