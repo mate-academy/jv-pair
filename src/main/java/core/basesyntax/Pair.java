@@ -1,16 +1,16 @@
 package core.basesyntax;
 
-class Pair<T> {
+class Pair<T, V> {
     private T firstParameter;
-    private T secondParameter;
+    private V secondParameter;
 
-    public Pair(T firstParameter, T secondParameter) {
+    public Pair(T firstParameter, V secondParameter) {
         this.firstParameter = firstParameter;
         this.secondParameter = secondParameter;
     }
 
-    public static <T> Pair of(T firstParameter, T secondParameter) {
-        return new Pair(firstParameter, secondParameter);
+    public static <T, V> Pair<T, V> of(T firstParameter, V secondParameter) {
+        return new Pair<>(firstParameter, secondParameter);
     }
 
     public Object getFirst() {
@@ -36,14 +36,14 @@ class Pair<T> {
         if (compared == null) {
             return false;
         }
-        if (compared.getClass().equals(Pair.class)) {
+        if (compared.getClass().equals(getClass())) {
             Pair currentCompared = (Pair) compared;
-            return ((this.firstParameter == currentCompared.firstParameter
-                    || (this.firstParameter != null
-                    && this.firstParameter.equals(currentCompared.firstParameter)))
-                    && (this.secondParameter == currentCompared.firstParameter
-                    || (this.secondParameter != null
-                    && this.secondParameter.equals(currentCompared.secondParameter))));
+            return ((firstParameter == currentCompared.firstParameter
+                    || (firstParameter != null
+                    && firstParameter.equals(currentCompared.firstParameter)))
+                    && (secondParameter == currentCompared.firstParameter
+                    || (secondParameter != null
+                    && secondParameter.equals(currentCompared.secondParameter))));
         }
         return false;
     }
