@@ -29,7 +29,7 @@ class Pair<K, V> {
         if (pair == null || getClass() != pair.getClass()) {
             return false;
         }
-        Pair<?, ?> current = (Pair<?, ?>) pair;
+        Pair<K, V> current = (Pair<K, V>) pair;
         return (first == current.first || first != null
                 && first.equals(current.first))
                 && (second == current.second || second != null
