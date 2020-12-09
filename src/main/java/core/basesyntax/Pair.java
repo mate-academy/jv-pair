@@ -10,15 +10,15 @@ class Pair<T, V> {
     }
 
     public static <T, V> Pair<T, V> of(T first, V second) {
-        return new Pair(first, second);
+        return new Pair<>(first, second);
     }
 
     public T getFirst() {
-        return first;
+        return this.first;
     }
 
     public V getSecond() {
-        return second;
+        return this.second;
     }
 
     @Override
@@ -42,8 +42,8 @@ class Pair<T, V> {
     @Override
     public int hashCode() {
         int result = 13;
-        result = 11 * result + (first == null ? 0 : first.hashCode());
-        result = 13 * result + (second == null ? 0 : second.hashCode());
+        result = 11 * result + (this.first == null ? 0 : this.first.hashCode());
+        result = 13 * result + (this.second == null ? 0 : this.second.hashCode());
         return result;
     }
 }
