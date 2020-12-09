@@ -32,7 +32,7 @@ class Pair<T, V> {
             return false;
         }
 
-        if (pair.getClass().equals(Pair.class)) {
+        if (pair.getClass().equals(getClass())) {
             Pair<T, V> current = (Pair<T, V>) pair;
             return ((current.first == null) ? current.first == first
                     : current.first.equals(first))
