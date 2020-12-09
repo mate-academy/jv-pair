@@ -17,8 +17,8 @@ class Pair<T, V> {
         return secondElement;
     }
 
-    public static <T, V> Pair of(T t, V v) {
-        return new Pair(t, v);
+    public static <T, V> Pair<T, V> of(T t, V v) {
+        return new Pair<>(t, v);
     }
 
     @Override
