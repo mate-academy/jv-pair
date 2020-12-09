@@ -13,7 +13,7 @@ class Pair<T, V> {
         return first;
     }
 
-    public void setFirst(T firstP) {
+    public void setFirst(T first) {
         this.first = first;
     }
 
