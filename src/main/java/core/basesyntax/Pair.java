@@ -38,7 +38,7 @@ class Pair<T, V> {
             return false;
         }
         if (obj.getClass().equals(getClass())) {
-            Pair curr = (Pair<T,V>) obj;
+            Pair<T,V> curr = (Pair<T,V>) obj;
             return ((firstElement == curr.firstElement)
                     || (firstElement != null && firstElement.equals(curr.firstElement)))
                     && ((secondElement == curr.secondElement)
