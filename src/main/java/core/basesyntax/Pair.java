@@ -29,13 +29,11 @@ class Pair<T, K> {
         if (pair == null) {
             return false;
         }
-        if (this.getClass().equals(pair.getClass())) {
+        if (getClass().equals(pair.getClass())) {
             Pair<T, K> current = (Pair<T, K>) pair;
-            if ((first == current.first || first != null && first.equals(current.first))
+            return ((first == current.first || first != null && first.equals(current.first))
                     && (second == current.second || second != null
-                    && second.equals(current.second))) {
-                return true;
-            }
+                    && second.equals(current.second)));
         }
         return false;
     }
