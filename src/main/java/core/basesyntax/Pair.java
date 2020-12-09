@@ -9,8 +9,8 @@ class Pair<K, V> {
         this.second = second;
     }
 
-    public static <K, V> Pair of(K argument1, V argument2) {
-        return new Pair(argument1, argument2);
+    public static <K, V> Pair<K, V> of(K argument1, V argument2) {
+        return new Pair<>(argument1, argument2);
     }
 
     public K getFirst() {
@@ -38,11 +38,11 @@ class Pair<K, V> {
             return false;
         }
         if (obj.getClass().equals(Pair.class)) {
-            Pair current = (Pair) obj;
-            return (first == current.getFirst()
-                    || (first != null && first.equals(current.getFirst())))
-                    && (second == current.getSecond()
-                    || (second != null && second.equals(current.getSecond())));
+            Pair<K, V> current = (Pair<K,V>) obj;
+            return (first == current.first
+                    || (first != null && first.equals(current.first)))
+                    && (second == current.second
+                    || (second != null && second.equals(current.second)));
         }
         return false;
     }
