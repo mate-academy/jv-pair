@@ -9,8 +9,8 @@ class Pair<F, S> {
         this.second = second;
     }
 
-    public static <F, S> Pair<F, S> of(Object f, Object s) {
-        return new Pair(f, s);
+    public static <F, S> Pair<F, S> of(F f, S s) {
+        return new Pair<>(f, s);
     }
 
     public F getFirst() {
@@ -40,10 +40,11 @@ class Pair<F, S> {
         }
 
         if (obj.getClass().equals(Pair.class)) {
-            return (((Pair<?, ?>) obj).first == null && ((Pair<?, ?>) obj).second == null
-                    && first == null && second == null) || (first != null && second != null
-                    && first.equals(((Pair<?, ?>) obj).first)
-                    && second.equals(((Pair<?, ?>) obj).second));
+            Pair<F, S> pair = (Pair<F, S>) obj;
+            return ((first == null && pair.first == null)
+                    || (first != null && first.equals(pair.first)))
+                    && ((second == null && pair.second == null)
+                    || (second != null && second.equals(pair.second)));
         }
         return false;
     }
