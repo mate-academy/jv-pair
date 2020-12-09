@@ -1,8 +1,8 @@
 package core.basesyntax;
 
 class Pair<T, K> {
-    private final T first;
-    private final K second;
+    private T first;
+    private K second;
 
     private Pair(T first, K second) {
         this.first = first;
@@ -18,7 +18,7 @@ class Pair<T, K> {
     }
 
     public static <T, K> Pair<T, K> of(T first, K second) {
-        return new Pair(first, second);
+        return new Pair<>(first, second);
     }
 
     @Override
@@ -30,15 +30,15 @@ class Pair<T, K> {
     }
 
     @Override
-    public boolean equals(Object pair) {
-        if (this == pair) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (pair == null) {
+        if (object == null) {
             return false;
         }
-        if (pair.getClass().equals(Pair.class)) {
-            Pair<T, K> current = (Pair<T, K>) pair;
+        if (object.getClass().equals(getClass())) {
+            Pair<T, K> current = (Pair<T, K>) object;
             return (first == current.first
                     || first != null && first.equals(current.first))
                     && (second == current.second
