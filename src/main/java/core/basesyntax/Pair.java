@@ -1,13 +1,12 @@
 package core.basesyntax;
 
 class Pair<T, V> {
-
     private T firstElement;
     private V secondElement;
 
-    private Pair(T t, V v) {
-        firstElement = t;
-        secondElement = v;
+    private Pair(T firstElement, V secondElement) {
+        this.firstElement = firstElement;
+        this.secondElement = secondElement;
     }
 
     public T getFirst() {
@@ -38,8 +37,8 @@ class Pair<T, V> {
         if (obj == null) {
             return false;
         }
-        if (obj.getClass().equals(Pair.class)) {
-            Pair curr = (Pair) obj;
+        if (obj.getClass().equals(getClass())) {
+            Pair curr = (Pair<T,V>) obj;
             return ((firstElement == curr.firstElement)
                     || (firstElement != null && firstElement.equals(curr.firstElement)))
                     && ((secondElement == curr.secondElement)
