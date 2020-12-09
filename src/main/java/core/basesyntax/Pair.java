@@ -22,9 +22,10 @@ class Pair<T, V> {
             return false;
         }
         Pair<T, V> pair = (Pair<T, V>) o;
-        return (first == null && pair.first == null && second == null && pair.second == null)
-                || (first != null && first.equals(pair.first)
-                && second != null && second.equals(pair.second));
+        return (first == pair.first
+                || (first != null && first.equals(pair.first)))
+                && (second == pair.second
+                || (second != null && second.equals(pair.second)));
     }
 
     @Override
