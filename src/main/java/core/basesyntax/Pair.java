@@ -5,13 +5,11 @@ public class Pair<T,S> {
     private S second;
 
     private Pair(T first,S second) {
-        if (first != null && second != null) {
-            this.first = first;
-            this.second = second;
-        }
+        this.first = first;
+        this.second = second;
     }
 
-    public static <T, S> Pair<T, S> of(T first,S second) {
+    public static <T, S> Pair<T, S> of(T first, S second) {
         return new Pair<>(first, second);
     }
 
