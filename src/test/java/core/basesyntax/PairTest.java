@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.lang.reflect.Method;
 
 public class PairTest {
-
     private Pair firstPair;
     private Pair secondPair;
     private Pair thirdPair;
@@ -29,8 +28,8 @@ public class PairTest {
             if (method.getName().equalsIgnoreCase("hashCode") ||
                     method.getName().equalsIgnoreCase("equals") ||
                     method.getName().equalsIgnoreCase("of") ||
-                    method.getName().equalsIgnoreCase("getFirst") ||
-                    method.getName().equalsIgnoreCase("getSecond")) {
+                    method.getName().equalsIgnoreCase("getKey") ||
+                    method.getName().equalsIgnoreCase("getValue")) {
                 requiredMethodsCount++;
             }
         }
@@ -133,15 +132,15 @@ public class PairTest {
     }
 
     @Test
-    public void getFirstMethodTest() {
-        Assert.assertEquals(5, firstPair.getFirst());
-        Assert.assertEquals(2, secondPair.getFirst());
+    public void getKeyMethodTest() {
+        Assert.assertEquals(5, firstPair.getKey());
+        Assert.assertEquals(2, secondPair.getKey());
     }
 
     @Test
-    public void getSecondMethodTest() {
-        Assert.assertEquals("Five", firstPair.getSecond());
-        Assert.assertEquals("Two", secondPair.getSecond());
+    public void getValueMethodTest() {
+        Assert.assertEquals("Five", firstPair.getValue());
+        Assert.assertEquals("Two", secondPair.getValue());
     }
 
     @Test
